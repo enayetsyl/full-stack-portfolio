@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .custom_border {
+    @apply border border-white border-opacity-10;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+
+  background-color: #121212;
+  color: #fff;
+}
