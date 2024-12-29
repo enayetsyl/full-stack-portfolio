@@ -1,5 +1,5 @@
-import easyfrontend from '../assets/ezy-croped.png';
-import webwizard from '../assets/webwizardsmedia-croped.png';
+import knowledgeMinar from '../assets/knowledge-minar.png';
+import assignment8 from '../assets/assignment-8.jpg';
 import carRental from '../assets/car-rental-cropped.png';
 import sallonOne from '../assets/sallon-one-croped.png';
 import mindFulBlog from '../assets/blog-one-croped.png';
@@ -136,48 +136,60 @@ export const workCategories = [
     text: 'NextJS',
     category: 'next',
   },
-  // {
-  //   text: 'Redux',
-  //   category: 'redux',
-  // },
   {
-    text: 'Figma',
-    category: 'figma',
+    text: 'Redux',
+    category: 'redux',
+  },
+  {
+    text: 'Express',
+    category: 'express',
   },
   {
     text: 'Tailwind CSS',
     category: 'tailwind',
   },
   {
-    text: 'Bootstrap',
-    category: 'bootstrap',
+    text: 'SHADCN UI',
+    category: 'shadcn',
   },
   {
-    text: 'Chakra UI',
-    category: 'chakra',
+    text: 'Mongoose',
+    category: 'mongoose',
   },
   {
-    text: 'Wordpress',
-    category: 'wordpress',
+    text: 'Postgresql',
+    category: 'postgre',
+  },
+  {
+    text: 'Prisma',
+    category: 'prisma',
   },
 ];
 
 export const portfolioWorks = [
   {
-    src: easyfrontend,
-    alt: 'ezy',
-    link: 'https://easyfrontend.com/',
-    title: 'Template Selling Web App',
-    desc: 'E-commerce',
-    category: ['react', 'tailwind', 'bootstrap', 'next'],
+    src: knowledgeMinar,
+    alt: 'shopease',
+    link: 'https://shop-ease-8a83-fe.vercel.app/',
+    title: 'E-commerce Website',
+    desc: 'PREN Stack',
+    category: ['next', 'react', 'typescript',  'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux' ],
   },
   {
-    src: webwizard,
-    alt: 'webwizardmedia',
-    link: 'https://webwizardsmedia.com/',
-    title: 'Web Wizards Media',
-    desc: 'Agency Website',
-    category: ['wordpress', 'figma'],
+    src: assignment8,
+    alt: 'Library Management System',
+    link: 'https://github.com/enayetsyl/level-2-assignment-8',
+    title: 'Library Management System',
+    desc: 'Book Website backend (Postgre, Express)',
+    category:  ['typescript', 'zod', 'express', 'prisma', 'postgres' ],
+  },
+  {
+    src: assignment8,
+    alt: 'Gardenia',
+    link: 'https://gardenia-fe.vercel.app/',
+    title: 'MERN App',
+    desc: 'Social Media Website for Gardener',
+    category:  ['typescript', 'zod', 'express', 'postgres', 'redux', 'tailwind', 'mongoose', 'next', 'react' ],
   },
   {
     src: gulfAuction,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { workCategories } from '../datas/data';
+import { workCategories } from '../../public/datas/data';
 
 const Categories = ({ filterItems }) => {
   const [active, setActive] = useState('all');
