@@ -1,5 +1,5 @@
 
-import OpenToWork from './Resume';
+import Resume from './Resume';
 import Social from './Social';
 import ownImage from '../../public/assets/Md_Enayetur_Rahman_Photo.png';
 import Image from 'next/image';
@@ -23,7 +23,7 @@ const HomeContent = () => {
         </p>
         <Social />
       </div>
-      <OpenToWork />
+      <Resume />
     </div>
   );
 };

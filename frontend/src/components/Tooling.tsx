@@ -19,7 +19,7 @@ const Tooling = () => {
                 />
                 <div className="text-start">
                   <h2 className="text-xl">{item.title}</h2>
-                  <p className="uppercase opacity-50">{item.percentage}%</p>
+                  {/* <p className="uppercase opacity-50">{item.percentage}%</p> */}
                 </div>
               </div>
             </div>
