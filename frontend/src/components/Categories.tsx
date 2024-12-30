@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { workCategories } from '../../public/datas/data';
 
-const Categories = ({ filterItems }) => {
+type CategoriesProps = {
+  filterItems: (category: string) => void;
+};
+
+const Categories = ({ filterItems }: CategoriesProps) => {
   const [active, setActive] = useState('all');
 
   return (

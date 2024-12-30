@@ -4,11 +4,12 @@ import { portfolioWorks } from '../../../public/datas/data';
 import Categories from '@/components/Categories';
 import WorkCard from '@/components/WorkCard';
 
+type Category = "all" | string;
 
 const Works = () => {
   const [menuItems, setMenuItems] = useState(portfolioWorks);
 
-  const filterItems = (category) => {
+  const filterItems = (category: Category) => {
     if (category === 'all') {
       setMenuItems(portfolioWorks);
       return;

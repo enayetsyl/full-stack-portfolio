@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { socialData } from "../../public/datas/data";
 
-const Social = ({ center, marginTop }) => {
+type SocialProps = {
+  center: boolean;
+  marginTop: boolean;
+};
+
+const Social = ({ center, marginTop }: SocialProps) => {
   return (
     <div
       className={`flex gap-6 ${marginTop && 'mt-11'} ${

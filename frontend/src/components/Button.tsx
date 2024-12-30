@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-const Button = ({ data }) => {
+type ButtonProps = {
+  data: {
+    link: string;
+    text: string;
+  };
+};
+
+const Button = ({ data }: ButtonProps) => {
   return (
     <Link
       href={data.link}

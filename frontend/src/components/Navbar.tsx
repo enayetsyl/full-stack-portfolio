@@ -1,14 +1,13 @@
 "use client"
 import Link from 'next/link';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { navData } from '../../public/datas/data';
 import { usePathname } from 'next/navigation';
 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { pathname } = usePathname();
+  const pathname  = usePathname();
 
   return (
     <>

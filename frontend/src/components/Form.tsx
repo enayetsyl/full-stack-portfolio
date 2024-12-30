@@ -3,11 +3,14 @@ import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 const Form = () => {
-  const form = useRef();
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    if (!form.current) {
+      console.error("Form element is not defined.");
+      return;
+    }
     // Check the type of form.current
     const currentType = typeof form.current;
 
@@ -59,7 +62,7 @@ const Form = () => {
       <textarea
         name="message"
         placeholder="Message"
-        rows="4"
+        rows={4}
         required
         className="w-full bg-[#1b1b1b] focus:border-[#36d7b7] rounded-md p-6 sm:p-7"
       />

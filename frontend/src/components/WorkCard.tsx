@@ -1,8 +1,19 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
+type WorkData = {
+  src:  StaticImageData | string; 
+  alt: string;
+  link: string;
+  title: string;
+  desc: string;
+};
 
-const WorkCard = ({ workData }) => {
+type WorkCardProps = {
+  workData: WorkData;
+};
+
+const WorkCard = ({ workData }: WorkCardProps) => {
   const { src, alt, link, title, desc } = workData;
   return (
     <Link

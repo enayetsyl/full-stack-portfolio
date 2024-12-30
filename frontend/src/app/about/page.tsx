@@ -20,7 +20,7 @@ const About = () => {
             and give the design and minimal outlook throught my code.
           </p>
           <img
-            src={own}
+            src={'https://res.cloudinary.com/deqyxkw0y/image/upload/v1735383179/Md_Enayetur_Rahman_Photo_admfn0.png'}
             alt="own"
             className="w-full rounded-xl object-cover max-h-[450px] my-12"
           />

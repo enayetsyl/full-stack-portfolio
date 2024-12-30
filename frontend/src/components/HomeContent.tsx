@@ -19,9 +19,9 @@ const HomeContent = () => {
           Hey, I'm Enayet — I'm a Full Stack Developer!
         </h2>
         <p className="text-lg font-light opacity-75 mb-12">
-          I am a full-stack Developer with 1 years of experience specializing in Next JS, Express, Mongodb, Postgres that drive innovation and efficiency.
+          I am a full-stack Developer with 1 years of experience specializing in Next JS, Express, Mongodb, Postgres tha11t drive innovation and efficiency.
         </p>
-        <Social />
+        <Social center={true} marginTop={true} />
       </div>
       <Resume />
     </div>
