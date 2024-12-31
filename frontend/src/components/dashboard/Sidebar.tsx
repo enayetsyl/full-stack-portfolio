@@ -14,7 +14,9 @@ const Sidebar = ({
 
   return (
     <aside className="w-64 bg-white border-r">
-      <div className="p-4 text-lg font-bold border-b">My Dashboard</div>
+      <div className="p-4 text-lg font-bold border-b text-black">
+        My Dashboard
+      </div>
       <nav>
         <ul>
           {links.map((link, index) => (
