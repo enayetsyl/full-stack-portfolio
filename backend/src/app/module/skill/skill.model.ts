@@ -8,6 +8,10 @@ const SkillSchema = new Schema<ISkill>({
     required: true,
     trim: true,
   },
+  image: {
+    type: String, // Store the image URL
+    required: true,
+  },
 });
 
 export const Skill = model<ISkill>('Skill', SkillSchema);

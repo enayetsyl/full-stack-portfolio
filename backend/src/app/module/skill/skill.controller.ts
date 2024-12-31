@@ -1,11 +1,33 @@
 import catchAsync from "../../utils/catchAsync";
+import { sendImageToCloudinary } from "../../utils/sendImageToCloudinary";
 import sendResponse from "../../utils/sendResponse";
 import { SkillService } from "./skill.service";
 
 
 // Create a new skill
 const CreateSkill = catchAsync(async (req, res) => {
-  const result = await SkillService.CreateSkill(req.body);
+  const { name } = req.body;
+
+  // Ensure an image file is uploaded
+  if (!req.file) {
+    throw new Error("Image is required");
+  }
+
+  // Upload image to Cloudinary
+  const imageUploadResult = await sendImageToCloudinary(
+    `skills/${Date.now()}-${req.file.originalname}`,
+    req.file.path
+  );
+
+  console.log('image uplaod', imageUploadResult)
+  // Save skill with the Cloudinary image URL
+  const newSkill = {
+    name,
+    image: imageUploadResult.secure_url, // Save the URL returned from Cloudinary
+  };
+
+  const result = await SkillService.CreateSkill(newSkill);
+  
 
   sendResponse(res, {
     statusCode: 201,

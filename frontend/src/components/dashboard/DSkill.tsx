@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const DSkill = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [skillName, setSkillName] = useState("");
+  const [skillImage, setSkillImage] = useState(null)
   const [skills, setSkills] = useState([]);
 
   const handleAddSkill = async () => {
@@ -11,19 +12,29 @@ const DSkill = () => {
       return;
     }
 
+
+    if (!skillImage) {
+      alert("Skill image is required");
+      return;
+    }
+
+    const formData = new FormData()
+    formData.append("name", skillName);
+    formData.append("image", skillImage)
+
     try {
       const response = await fetch("http://localhost:5000/api/v1/skill", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: skillName }),
+        
+        body: formData,
       });
 
       if (response.ok) {
         alert("Skill added successfully!");
         setSkillName("");
+        setSkillImage(null)
         setIsModalOpen(false);
+        fetchSkills()
       } else {
         alert("Failed to add skill");
       }
@@ -71,7 +82,7 @@ const DSkill = () => {
   }, []);
 
   return (
-    <div className="p-6">
+    <div className="p-6 text-black">
       <h1 className="text-red-600 font-bold text-5xl text-center mb-6">
         Skills
       </h1>
@@ -122,6 +133,12 @@ const DSkill = () => {
               onChange={(e) => setSkillName(e.target.value)}
               placeholder="Enter skill name"
               className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
+            />
+            <input
+            type="file"
+            accept="image/*"
+            onChange={(e)=> setSkillImage(e.target.files[0])}
+            className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
             />
             <div className="flex justify-end gap-4">
               <button

@@ -7,7 +7,7 @@ const DProjects = () => {
   const [currentProject, setCurrentProject] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
-    image: '',
+   
     description: '',
     summary: '',
     liveLink: '',
@@ -16,6 +16,7 @@ const DProjects = () => {
     category: '',
     technologies: '',
   });
+  const [imageFile, setImageFile] = useState(null);
 
   console.log("projects", projects)
 
@@ -41,17 +42,22 @@ const DProjects = () => {
         : 'http://localhost:5000/api/v1/project/create-project';
       const method = isEditMode ? 'PUT' : 'POST';
 
-      const response = await fetch(endpoint, {
+       // Use FormData to send image and other data
+       const formDataToSend = new FormData();
+       formDataToSend.append('title', formData.title);
+       formDataToSend.append('description', formData.description);
+       formDataToSend.append('summary', formData.summary);
+       formDataToSend.append('liveLink', formData.liveLink);
+       formDataToSend.append('gitHubLink', formData.gitHubLink);
+       formDataToSend.append('stack', formData.stack.split(',').map((s) => s.trim()));
+       formDataToSend.append('category', formData.category.split(',').map((c) => c.trim()));
+       formDataToSend.append('technologies', formData.technologies.split(',').map((t) => t.trim()));
+       if (imageFile) formDataToSend.append('image', imageFile); // Append the image file
+ 
+
+       const response = await fetch(endpoint, {
         method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          stack: formData.stack.split(',').map((s) => s.trim()),
-          category: formData.category.split(',').map((c) => c.trim()),
-          technologies: formData.technologies.split(',').map((t) => t.trim()),
-        }),
+        body: formDataToSend,
       });
 
       if (response.ok) {
@@ -59,7 +65,6 @@ const DProjects = () => {
         fetchProjects();
         setFormData({
           title: '',
-          image: '',
           description: '',
           summary: '',
           liveLink: '',
@@ -68,6 +73,7 @@ const DProjects = () => {
           category: '',
           technologies: '',
         });
+        setImageFile(null); 
         setIsFormVisible(false);
         setIsEditMode(false);
         setCurrentProject(null);
@@ -104,7 +110,6 @@ const DProjects = () => {
     setCurrentProject(project);
     setFormData({
       title: project.title,
-      image: project.image,
       description: project.description,
       summary: project.summary,
       liveLink: project.liveLink,
@@ -113,6 +118,7 @@ const DProjects = () => {
       category: project.category.join(', '),
       technologies: project.technologies.join(', '),
     });
+    setImageFile(null);
   };
 
   useEffect(() => {
@@ -130,7 +136,6 @@ const DProjects = () => {
             setCurrentProject(null);
             setFormData({
               title: '',
-              image: '',
               description: '',
               summary: '',
               liveLink: '',
@@ -139,6 +144,7 @@ const DProjects = () => {
               category: '',
               technologies: '',
             });
+            setImageFile(null);
           }}
           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
@@ -199,13 +205,12 @@ const DProjects = () => {
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
                 required
               />
-              <input
-                type="text"
-                value={formData.image}
-                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                placeholder="Image URL"
+             <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setImageFile(e.target.files[0])}
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
-                required
+                required={!isEditMode} // Image is required only for adding a new project
               />
               <textarea
                 value={formData.description}

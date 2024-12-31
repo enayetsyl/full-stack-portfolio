@@ -1,11 +1,12 @@
 import express from 'express';
 import { SkillController } from './skill.controller';
+import { upload } from '../../utils/sendImageToCloudinary';
 
 
 const router = express.Router();
 
 // Route to create a new skill
-router.post('/', SkillController.CreateSkill);
+router.post("/", upload.single("image"), SkillController.CreateSkill);
 
 // Route to fetch all skills
 router.get('/', SkillController.GetAllSkills);
