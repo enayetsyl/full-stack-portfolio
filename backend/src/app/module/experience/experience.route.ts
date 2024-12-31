@@ -7,7 +7,9 @@ import { ExperienceController } from './experience.controller';
 const router = express.Router();
 
 router.post("/create-experience", ExperienceController.CreateExperience)
-router.post("/get-all-experience", ExperienceController.GetAllExperience)
+router.get("/get-all-experience", ExperienceController.GetAllExperience)
+router.put('/update-experience/:id', ExperienceController.UpdateExperience);
+
 
 
 

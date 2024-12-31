@@ -31,9 +31,20 @@ const GetAllExperience = catchAsync(async (req, res) => {
   });
 });
 
+const UpdateExperience = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await ExperienceService.UpdateExperience(id, req.body);
 
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Experience updated successfully',
+    data: result,
+  });
+});
 
 export const ExperienceController = {
   CreateExperience,
-  GetAllExperience
+  GetAllExperience,
+  UpdateExperience
  };
