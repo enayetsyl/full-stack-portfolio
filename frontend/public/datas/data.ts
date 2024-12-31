@@ -87,6 +87,15 @@ export const navData = [
     pathName: '/code-preview',
   },
   {
+    title: 'Blog',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512" fill="none">
+  <path d="M260.4 254.9L131.5 33.1a2.2 2.2 0 0 0 -3.8 0L.3 254.9A2.2 2.2 0 0 0 .3 257.1L129.1 478.9a2.2 2.2 0 0 0 3.8 0L260.4 257.1A2.2 2.2 0 0 0 260.4 254.9zm39.1-25.7a2.2 2.2 0 0 0 1.9 1.1h66.5a2.2 2.2 0 0 0 1.9-3.3L259.1 33.1a2.2 2.2 0 0 0 -1.9-1.1H190.7a2.2 2.2 0 0 0 -1.9 3.3zM511.7 254.9L384.9 33.1A2.2 2.2 0 0 0 383 32h-66.6a2.2 2.2 0 0 0 -1.9 3.3L440.7 256 314.5 476.7a2.2 2.2 0 0 0 1.9 3.3h66.6a2.2 2.2 0 0 0 1.9-1.1L511.7 257.1A2.2 2.2 0 0 0 511.7 254.9zM366 284.9H299.5a2.2 2.2 0 0 0 -1.9 1.1l-108.8 190.6a2.2 2.2 0 0 0 1.9 3.3h66.5a2.2 2.2 0 0 0 1.9-1.1l108.8-190.6A2.2 2.2 0 0 0 366 284.9z" fill="currentColor"/>
+</svg>
+`,
+    link: '/blog',
+    pathName: '/blog',
+  },
+  {
     title: 'Contact',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
     <path d="M21.875 20.3125H3.125C2.9178 20.3125 2.71909 20.2302 2.57257 20.0837C2.42606 19.9372 2.34375 19.7385 2.34375 19.5312V6.25C2.34375 5.8356 2.50837 5.43817 2.8014 5.14515C3.09442 4.85212 3.49185 4.6875 3.90625 4.6875H21.0938C21.5082 4.6875 21.9056 4.85212 22.1986 5.14515C22.4916 5.43817 22.6562 5.8356 22.6562 6.25V19.5312C22.6562 19.7385 22.5739 19.9372 22.4274 20.0837C22.2809 20.2302 22.0822 20.3125 21.875 20.3125ZM12.5 11.9971L5.13379 18.75H19.8662L12.5 11.9971ZM9.63965 12.5L3.90625 7.24512V17.7549L9.63965 12.5ZM10.7959 11.4404L11.9678 10.3613C12.1119 10.229 12.3004 10.1556 12.4961 10.1556C12.6917 10.1556 12.8803 10.229 13.0244 10.3613L14.1963 11.4404L19.8604 6.25H5.13379L10.7959 11.4404ZM15.3604 12.5L21.0938 17.7559V7.24414L15.3604 12.5Z" fill="#CCCCCC"/>
@@ -173,7 +182,17 @@ export const portfolioWorks = [
     link: 'https://shop-ease-8a83-fe.vercel.app/',
     title: 'E-commerce Website',
     desc: 'PREN Stack',
-    category: ['next', 'react', 'typescript',  'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux' ],
+    category: [
+      'next',
+      'react',
+      'typescript',
+      'tailwind',
+      'shadcn',
+      'zod',
+      'express',
+      'prisma',
+      'redux',
+    ],
   },
   {
     src: assignment8,
@@ -181,7 +200,7 @@ export const portfolioWorks = [
     link: 'https://github.com/enayetsyl/level-2-assignment-8',
     title: 'Library Management System',
     desc: 'Book Website backend (Postgre, Express)',
-    category:  ['typescript', 'zod', 'express', 'prisma', 'postgres' ],
+    category: ['typescript', 'zod', 'express', 'prisma', 'postgres'],
   },
   {
     src: assignment8,
@@ -189,7 +208,17 @@ export const portfolioWorks = [
     link: 'https://gardenia-fe.vercel.app/',
     title: 'MERN App',
     desc: 'Social Media Website for Gardener',
-    category:  ['typescript', 'zod', 'express', 'postgres', 'redux', 'tailwind', 'mongoose', 'next', 'react' ],
+    category: [
+      'typescript',
+      'zod',
+      'express',
+      'postgres',
+      'redux',
+      'tailwind',
+      'mongoose',
+      'next',
+      'react',
+    ],
   },
   {
     src: gulfAuction,
@@ -288,8 +317,6 @@ export const portfolioWorks = [
     category: ['wordpress', 'figma', 'elementor', 'crocoblock', 'ecommerce'],
   },
 ];
-
-
 
 export const expertise = [
   // {

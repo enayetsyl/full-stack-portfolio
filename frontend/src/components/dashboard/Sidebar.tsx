@@ -1,7 +1,10 @@
-"use client"
-import { useState } from 'react';
+'use client';
 
-const Sidebar = ({ setActiveComponent }: { setActiveComponent: (component: string) => void }) => {
+const Sidebar = ({
+  setActiveComponent,
+}: {
+  setActiveComponent: (component: string) => void;
+}) => {
   const links = [
     { name: 'Skill', component: 'Skill' },
     { name: 'Experience', component: 'Experience' },
