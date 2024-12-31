@@ -1,5 +1,5 @@
 import SingleBlogItem from '@/components/SingleBlogItem';
-import React from 'react'
+import blog1 from '../../../../public/assets/assignment-8.jpg';
 const data = [
   {
     img: blog1,
@@ -35,17 +35,15 @@ const data = [
   },
 ];
 const Blogs = () => {
-  
-    return (
-      <div className="xl:pl-[270px]">
-        <div className="container px-4 mx-auto max-w-4xl py-12">
-          {data?.map((item, i) => (
-            <SingleBlogItem key={i} item={item} />
-          ))}
-        </div>
+  return (
+    <div className="xl:pl-[270px]">
+      <div className="container px-4 mx-auto max-w-4xl py-12">
+        {data?.map((item, i) => (
+          <SingleBlogItem key={i} item={item} />
+        ))}
       </div>
-    );
-  
-}
+    </div>
+  );
+};
 
-export default Blogs
+export default Blogs;

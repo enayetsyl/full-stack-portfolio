@@ -1,13 +1,12 @@
-"use client"
+'use client';
 import Link from 'next/link';
 import { useState } from 'react';
 import { navData } from '../../public/datas/data';
 import { usePathname } from 'next/navigation';
 
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const pathname  = usePathname();
+  const pathname = usePathname();
 
   return (
     <>
@@ -37,7 +36,11 @@ const Navbar = () => {
                     dangerouslySetInnerHTML={{ __html: item.icon }}
                     className="mr-2.5"
                   />
-                  <p className="opacity-50 group-hover:opacity-100 duration-500">
+                  <p
+                    className={`opacity-50 group-hover:opacity-100 duration-500 ${
+                      pathname === item.link && 'opacity-100'
+                    }`}
+                  >
                     {item.title}
                   </p>
                 </Link>
