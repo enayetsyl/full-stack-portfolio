@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { portfolioWorks } from '../../../public/datas/data';
+import { portfolioWorks } from '../../../../public/datas/data';
 import Categories from '@/components/Categories';
 import WorkCard from '@/components/WorkCard';
 ;
