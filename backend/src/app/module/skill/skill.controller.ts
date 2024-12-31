@@ -23,7 +23,7 @@ const CreateSkill = catchAsync(async (req, res) => {
   // Save skill with the Cloudinary image URL
   const newSkill = {
     name,
-    image: imageUploadResult.secure_url, // Save the URL returned from Cloudinary
+    image: imageUploadResult.secure_url as string, // Save the URL returned from Cloudinary
   };
 
   const result = await SkillService.CreateSkill(newSkill);

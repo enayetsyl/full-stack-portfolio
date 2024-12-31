@@ -1,18 +1,31 @@
 import catchAsync from "../../utils/catchAsync";
 import { sendImageToCloudinary } from "../../utils/sendImageToCloudinary";
 import sendResponse from "../../utils/sendResponse";
+import { IProject } from "./project.interface";
 import { ProjectService } from "./project.service";
 
 // Create a new project
 const CreateProject = catchAsync(async (req, res) => {
-  const { title, description, summary, liveLink, gitHubLink, stack, category, technologies } = req.body;
-  const imageFile = req.file;
+  const {
+    title,
+    description,
+    summary,
+    liveLink,
+    gitHubLink,
+    stack,
+    category,
+    technologies,
+  } = req.body;
+  const imageFile = req.file as Express.Multer.File;
 
   if (!imageFile) {
     throw new Error("Image file is required");
   }
 
-  const cloudinaryResult = await sendImageToCloudinary(imageFile.originalname, imageFile.path);
+  const cloudinaryResult = await sendImageToCloudinary(
+    imageFile.originalname,
+    imageFile.path
+  );
 
   const payload = {
     title,
@@ -20,10 +33,10 @@ const CreateProject = catchAsync(async (req, res) => {
     summary,
     liveLink,
     gitHubLink,
-    stack: stack.split(",").map((s) => s.trim()),
-    category: category.split(",").map((c) => c.trim()),
-    technologies: technologies.split(",").map((t) => t.trim()),
-    image: cloudinaryResult.secure_url, // Use the secure URL from Cloudinary
+    stack: stack.split(",").map((s: string) => s.trim()),
+    category: category.split(",").map((c: string) => c.trim()),
+    technologies: technologies.split(",").map((t: string) => t.trim()),
+    image: cloudinaryResult.secure_url as string,
   };
 
   const result = await ProjectService.CreateProject(payload);
@@ -39,23 +52,35 @@ const CreateProject = catchAsync(async (req, res) => {
 // Edit a project
 const EditProject = catchAsync(async (req, res) => {
   const { id } = req.params;
-  const { title, description, summary, liveLink, gitHubLink, stack, category, technologies } = req.body;
-  const imageFile = req.file;
-
-  let payload = {
+  const {
     title,
     description,
     summary,
     liveLink,
     gitHubLink,
-    stack: stack?.split(",").map((s) => s.trim()),
-    category: category?.split(",").map((c) => c.trim()),
-    technologies: technologies?.split(",").map((t) => t.trim()),
+    stack,
+    category,
+    technologies,
+  } = req.body;
+  const imageFile = req.file as Express.Multer.File;
+
+  let payload : Partial<IProject> = {
+    title,
+    description,
+    summary,
+    liveLink,
+    gitHubLink,
+    stack: stack?.split(",").map((s: string) => s.trim()),
+    category: category?.split(",").map((c: string) => c.trim()),
+    technologies: technologies?.split(",").map((t: string) => t.trim()),
   };
 
   if (imageFile) {
-    const cloudinaryResult = await sendImageToCloudinary(imageFile.originalname, imageFile.path);
-    payload = { ...payload, image: cloudinaryResult.secure_url };
+    const cloudinaryResult = await sendImageToCloudinary(
+      imageFile.originalname,
+      imageFile.path
+    );
+    payload = { ...payload, image: cloudinaryResult.secure_url as string };
   }
 
   const result = await ProjectService.EditProject(id, payload);
@@ -68,19 +93,16 @@ const EditProject = catchAsync(async (req, res) => {
   });
 });
 
-
 // Get all projects
 const GetAllProjects = catchAsync(async (req, res) => {
   const result = await ProjectService.GetAllProjects();
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Projects fetched successfully',
+    message: "Projects fetched successfully",
     data: result,
   });
 });
-
-
 
 // Delete a project
 const DeleteProject = catchAsync(async (req, res) => {
@@ -89,7 +111,7 @@ const DeleteProject = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: 'Project deleted successfully',
+    message: "Project deleted successfully",
     data: result,
   });
 });
