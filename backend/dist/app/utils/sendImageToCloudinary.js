@@ -8,6 +8,7 @@ const cloudinary_1 = require("cloudinary");
 const fs_1 = __importDefault(require("fs"));
 const multer_1 = __importDefault(require("multer"));
 const config_1 = __importDefault(require("../../config"));
+const path_1 = __importDefault(require("path"));
 // Todo this file is responsible for custom made function to upload image to cloudinary, receiving file using multer and deleting file from temporary folder. Read the following blog to get a comprehensive understanding https://dev.to/md_enayeturrahman_2560e3/how-to-save-image-with-multer-j74
 cloudinary_1.v2.config({
     cloud_name: config_1.default.cloudinary_cloud_name,
@@ -36,7 +37,12 @@ const sendImageToCloudinary = (imageName, path) => {
 exports.sendImageToCloudinary = sendImageToCloudinary;
 const storage = multer_1.default.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, process.cwd() + '/uploads/');
+        const uploadPath = path_1.default.join(process.cwd(), "uploads");
+        // Check if the folder exists; if not, create it
+        if (!fs_1.default.existsSync(uploadPath)) {
+            fs_1.default.mkdirSync(uploadPath, { recursive: true });
+        }
+        cb(null, uploadPath);
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);

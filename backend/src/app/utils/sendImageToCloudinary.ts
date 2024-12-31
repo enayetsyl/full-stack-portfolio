@@ -2,6 +2,7 @@ import { UploadApiResponse, v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
 import multer from 'multer';
 import config from '../../config';
+import path from 'path';
 
 // Todo this file is responsible for custom made function to upload image to cloudinary, receiving file using multer and deleting file from temporary folder. Read the following blog to get a comprehensive understanding https://dev.to/md_enayeturrahman_2560e3/how-to-save-image-with-multer-j74
 
@@ -39,7 +40,12 @@ export const sendImageToCloudinary = (
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, process.cwd() + '/uploads/');
+    const uploadPath = path.join(process.cwd(), "uploads");
+    // Check if the folder exists; if not, create it
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath, { recursive: true });
+    }
+    cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
