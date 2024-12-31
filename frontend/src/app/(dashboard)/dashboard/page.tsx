@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Sidebar from '@/components/dashboard/Sidebar';
@@ -18,8 +18,6 @@ const Dashboard = () => {
     }
   }, [router]);
 
-  
-
   const renderComponent = () => {
     switch (activeComponent) {
       case 'Skill':
@@ -31,9 +29,9 @@ const Dashboard = () => {
       case 'Blogs':
         return <DBlogs />;
       default:
-        return <Skill />;
+        return <DSkill />;
     }
-  }
+  };
 
   return (
     <div className="flex min-h-screen bg-gray-100">
