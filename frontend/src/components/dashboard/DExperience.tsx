@@ -147,7 +147,7 @@ const DExperience = () => {
             </tr>
           </thead>
           <tbody >
-            {experiences.map((experience: any) => (
+            {experiences.map((experience: Experience) => (
               <tr key={experience._id}>
                 <td className="px-4 py-2 border">{experience.companyName}</td>
                 <td className="px-4 py-2 border">{experience.position}</td>

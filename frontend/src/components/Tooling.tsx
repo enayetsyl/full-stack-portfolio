@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface Skill {
-  id: string; // Use the correct type (string, number, etc.)
+  _id: string; // Use the correct type (string, number, etc.)
   name: string;
   image: string; // URL for the skill image
 }
@@ -12,6 +12,7 @@ interface Skill {
 
 const Tooling = () => {
   const [skills, setSkills] = useState<Skill[]>([]);
+  console.log("skills", skills)
   const fetchSkills = async () => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill`);

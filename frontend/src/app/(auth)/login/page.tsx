@@ -3,13 +3,13 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('enayetflweb@gmail.com');
+  const [password, setPassword] = useState('123456@');
   const router = useRouter()
 
   const handleLogin = () => {
-    const correctUsername = 'admin';
-    const correctPassword = 'password123';
+    const correctUsername = 'enayetflweb@gmail.com';
+    const correctPassword = '123456@';
 
     if (username === correctUsername && password === correctPassword) {
       localStorage.setItem('isLoggedIn', 'true');
