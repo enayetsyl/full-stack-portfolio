@@ -16,8 +16,16 @@ const app: Application = express();
 app.use(express.json());
 
 
-// CORS configuration
-app.options('*', cors()); 
+app.use(
+  cors({
+    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'], // Allowed origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type'], // Allow headers used in your requests
+    credentials: true, // Optional: Use if cookies are involved
+  })
+);
+
+app.options('*', cors());
 
 app.use(cookieParser());
 

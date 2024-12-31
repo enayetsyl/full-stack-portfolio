@@ -16,7 +16,12 @@ const notFound_1 = __importDefault(require("./app/middlewares/notFound"));
 const app = (0, express_1.default)();
 //parsers
 app.use(express_1.default.json());
-// CORS configuration
+app.use((0, cors_1.default)({
+    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'], // Allowed origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type'], // Allow headers used in your requests
+    credentials: true, // Optional: Use if cookies are involved
+}));
 app.options('*', (0, cors_1.default)());
 app.use((0, cookie_parser_1.default)());
 // application routes
