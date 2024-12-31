@@ -23,7 +23,7 @@ const DSkill = () => {
     formData.append("image", skillImage)
 
     try {
-      const response = await fetch("http://localhost:5000/api/v1/skill", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill`, {
         method: "POST",
         
         body: formData,
@@ -46,7 +46,7 @@ const DSkill = () => {
 
   const fetchSkills = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/v1/skill");
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill`);
       if (response.ok) {
         const data = await response.json();
         console.log("data", data);
@@ -61,7 +61,7 @@ const DSkill = () => {
 
   const handleDeleteSkill = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/v1/skill/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill/${id}`, {
         method: "DELETE",
       });
 
