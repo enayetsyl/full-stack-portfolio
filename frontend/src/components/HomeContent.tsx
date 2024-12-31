@@ -21,7 +21,7 @@ const HomeContent = () => {
         <p className="text-lg font-light opacity-75 mb-12">
           I am a full-stack Developer with 1 years of experience specializing in Next JS, Express, Mongodb, Postgres tha11t drive innovation and efficiency.
         </p>
-        <Social center={true} marginTop={true} />
+        <Social center={false} marginTop={true} />
       </div>
       <Resume />
     </div>

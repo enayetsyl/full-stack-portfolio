@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { expertise } from '../../public/datas/data';
 import Image from 'next/image';
 
 interface Skill {
@@ -40,7 +39,7 @@ const Tooling = () => {
           return (
             <div
               className="col-span-4 sm:col-span-2 lg:col-span-1 text-center h-full"
-              key={item.id}
+              key={item._id}
             >
               <div className="w-full flex items-center gap-2 border custom_border rounded-xl p-4 md:p-8 h-full group">
                 <Image
