@@ -11,16 +11,35 @@ import notFound from './app/middlewares/notFound';
 
 const app: Application = express();
 
+
 //parsers
 app.use(express.json());
-app.use(cookieParser());
+
+
+// CORS configuration
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://e-rahman-portfolio.vercel.app"
+];
 
 app.use(
   cors({
-    origin: '*', // Allow all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin || "")) {
+        callback(null, origin);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    // credentials: true, // Allow credentials (cookies, auth headers)
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
+
+app.use(cookieParser());
+
+
 
 // application routes
 app.use('/api/v1', router); // /api/v1 will prefix all the route. This is the connection with the index.ts file inside the routes folder. 
