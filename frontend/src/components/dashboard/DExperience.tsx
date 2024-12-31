@@ -17,12 +17,13 @@ const DExperience = () => {
   });
 
   console.log("experience", experiences)
+  console.log("baseurl", process.env.NEXT_PUBLIC_BACKEND_BASE_URL)
 
   // Fetch all experiences
   const fetchExperiences = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/v1/experience/get-all-experience"
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}experience/get-all-experience`
       );
       const data = await response.json();
       console.log("experience data", data);
@@ -36,8 +37,8 @@ const DExperience = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const endpoint = editExperience
-      ? `http://localhost:5000/api/v1/experience/update-experience/${editExperience._id}`
-      : "http://localhost:5000/api/v1/experience/create-experience";
+      ? `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}experience/update-experience/${editExperience._id}`
+      : `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}experience/create-experience`;
 
     try {
       const response = await fetch(endpoint, {

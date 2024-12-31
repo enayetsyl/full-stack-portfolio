@@ -23,7 +23,7 @@ const DProjects = () => {
   // Fetch all projects
   const fetchProjects = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/v1/project/get-all-projects');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/get-all-projects`);
       const data = await response.json();
       console.log('data', data)
       setProjects(data.data || []);
@@ -38,8 +38,8 @@ const DProjects = () => {
 
     try {
       const endpoint = isEditMode
-        ? `http://localhost:5000/api/v1/project/edit-project/${currentProject._id}`
-        : 'http://localhost:5000/api/v1/project/create-project';
+        ? `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/edit-project/${currentProject._id}`
+        : `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/create-project`;
       const method = isEditMode ? 'PUT' : 'POST';
 
        // Use FormData to send image and other data
@@ -88,7 +88,7 @@ const DProjects = () => {
   // Handle delete project
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/v1/project/delete-project/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/delete-project/${id}`, {
         method: 'DELETE',
       });
 
