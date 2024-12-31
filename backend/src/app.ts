@@ -17,25 +17,7 @@ app.use(express.json());
 
 
 // CORS configuration
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://e-rahman-portfolio.vercel.app"
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin || "")) {
-        callback(null, origin);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    // credentials: true, // Allow credentials (cookies, auth headers)
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-  })
-);
+app.options('*', cors()); 
 
 app.use(cookieParser());
 
