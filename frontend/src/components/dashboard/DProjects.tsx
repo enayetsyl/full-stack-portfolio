@@ -7,7 +7,6 @@ const DProjects = () => {
   const [currentProject, setCurrentProject] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
-   
     description: '',
     summary: '',
     liveLink: '',
@@ -18,14 +17,16 @@ const DProjects = () => {
   });
   const [imageFile, setImageFile] = useState(null);
 
-  console.log("projects", projects)
+  console.log('projects', projects);
 
   // Fetch all projects
   const fetchProjects = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/get-all-projects`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/get-all-projects`
+      );
       const data = await response.json();
-      console.log('data', data)
+      console.log('data', data);
       setProjects(data.data || []);
     } catch (error) {
       console.error('Error fetching projects:', error);
@@ -42,26 +43,38 @@ const DProjects = () => {
         : `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/create-project`;
       const method = isEditMode ? 'PUT' : 'POST';
 
-       // Use FormData to send image and other data
-       const formDataToSend = new FormData();
-       formDataToSend.append('title', formData.title);
-       formDataToSend.append('description', formData.description);
-       formDataToSend.append('summary', formData.summary);
-       formDataToSend.append('liveLink', formData.liveLink);
-       formDataToSend.append('gitHubLink', formData.gitHubLink);
-       formDataToSend.append('stack', formData.stack.split(',').map((s) => s.trim()));
-       formDataToSend.append('category', formData.category.split(',').map((c) => c.trim()));
-       formDataToSend.append('technologies', formData.technologies.split(',').map((t) => t.trim()));
-       if (imageFile) formDataToSend.append('image', imageFile); // Append the image file
- 
+      // Use FormData to send image and other data
+      const formDataToSend = new FormData();
+      formDataToSend.append('title', formData.title);
+      formDataToSend.append('description', formData.description);
+      formDataToSend.append('summary', formData.summary);
+      formDataToSend.append('liveLink', formData.liveLink);
+      formDataToSend.append('gitHubLink', formData.gitHubLink);
+      formDataToSend.append(
+        'stack',
+        formData.stack.split(',').map((s) => s.trim())
+      );
+      formDataToSend.append(
+        'category',
+        formData.category.split(',').map((c) => c.trim())
+      );
+      formDataToSend.append(
+        'technologies',
+        formData.technologies.split(',').map((t) => t.trim())
+      );
+      if (imageFile) formDataToSend.append('image', imageFile); // Append the image file
 
-       const response = await fetch(endpoint, {
+      const response = await fetch(endpoint, {
         method,
         body: formDataToSend,
       });
 
       if (response.ok) {
-        alert(isEditMode ? 'Project updated successfully!' : 'Project added successfully!');
+        alert(
+          isEditMode
+            ? 'Project updated successfully!'
+            : 'Project added successfully!'
+        );
         fetchProjects();
         setFormData({
           title: '',
@@ -73,7 +86,7 @@ const DProjects = () => {
           category: '',
           technologies: '',
         });
-        setImageFile(null); 
+        setImageFile(null);
         setIsFormVisible(false);
         setIsEditMode(false);
         setCurrentProject(null);
@@ -88,9 +101,12 @@ const DProjects = () => {
   // Handle delete project
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/delete-project/${id}`, {
-        method: 'DELETE',
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/delete-project/${id}`,
+        {
+          method: 'DELETE',
+        }
+      );
 
       if (response.ok) {
         alert('Project deleted successfully!');
@@ -127,7 +143,9 @@ const DProjects = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-red-600 font-bold text-5xl text-center mb-6">Projects</h1>
+      <h1 className="text-red-600 font-bold text-5xl text-center mb-6">
+        Projects
+      </h1>
       <div className="flex justify-between mb-4">
         <button
           onClick={() => {
@@ -167,7 +185,12 @@ const DProjects = () => {
               <tr key={project._id}>
                 <td className="px-4 py-2 border">{project.title}</td>
                 <td className="px-4 py-2 border">
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500"
+                  >
                     {project.liveLink || 'N/A'}
                   </a>
                 </td>
@@ -195,17 +218,21 @@ const DProjects = () => {
       {isFormVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
           <div className="bg-white p-6 rounded shadow-lg w-96 max-h-[90vh] overflow-y-scroll text-black">
-            <h2 className="text-2xl font-bold mb-4">{isEditMode ? 'Edit Project' : 'Add Project'}</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              {isEditMode ? 'Edit Project' : 'Add Project'}
+            </h2>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
                 value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
                 placeholder="Title"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
                 required
               />
-             <input
+              <input
                 type="file"
                 accept="image/*"
                 onChange={(e) => setImageFile(e.target.files[0])}
@@ -214,45 +241,59 @@ const DProjects = () => {
               />
               <textarea
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
                 placeholder="Description"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
               <textarea
                 value={formData.summary}
-                onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, summary: e.target.value })
+                }
                 placeholder="Summary"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
               <input
                 type="text"
                 value={formData.liveLink}
-                onChange={(e) => setFormData({ ...formData, liveLink: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, liveLink: e.target.value })
+                }
                 placeholder="Live Link"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
               <input
                 type="text"
                 value={formData.gitHubLink}
-                onChange={(e) => setFormData({ ...formData, gitHubLink: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, gitHubLink: e.target.value })
+                }
                 placeholder="GitHub Link"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
               <textarea
                 value={formData.stack}
-                onChange={(e) => setFormData({ ...formData, stack: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, stack: e.target.value })
+                }
                 placeholder="Stack (comma-separated)"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
               <textarea
                 value={formData.category}
-                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, category: e.target.value })
+                }
                 placeholder="Category (comma-separated)"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
               <textarea
                 value={formData.technologies}
-                onChange={(e) => setFormData({ ...formData, technologies: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, technologies: e.target.value })
+                }
                 placeholder="Technologies (comma-separated)"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />

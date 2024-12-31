@@ -1,8 +1,9 @@
-import ClientLogos from "@/components/ClientLogos";
-import HomeContent from "@/components/HomeContent";
-import Testimonial from "@/components/Testmonial";
-import Tooling from "@/components/Tooling";
-import Work from "@/components/Work";
+import ClientLogos from '@/components/ClientLogos';
+import Experience from '@/components/Experience';
+import HomeContent from '@/components/HomeContent';
+import Testimonial from '@/components/Testmonial';
+import Tooling from '@/components/Tooling';
+import Work from '@/components/Work';
 
 const Home = () => {
   return (
@@ -18,6 +19,8 @@ const Home = () => {
           <Work />
           <div className="relative border-b custom_border w-full"></div>
           <Testimonial />
+          <div className="relative border-b custom_border w-full"></div>
+          <Experience />
           <div className="relative border-b custom_border w-full"></div>
         </div>
       </div>
