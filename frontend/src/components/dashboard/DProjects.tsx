@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
+interface Project {
+  _id: string;
+  title: string;
+  description: string;
+  summary: string;
+  liveLink: string;
+  gitHubLink: string;
+  stack: string[];
+  category: string[];
+  technologies: string[];
+}
+
+
+
 const DProjects = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [currentProject, setCurrentProject] = useState(null);
+  const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const [formData, setFormData] = useState({
     title: '',
    
@@ -16,7 +30,7 @@ const DProjects = () => {
     category: '',
     technologies: '',
   });
-  const [imageFile, setImageFile] = useState(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   console.log("projects", projects)
 
@@ -33,11 +47,11 @@ const DProjects = () => {
   };
 
   // Handle form submission for adding/editing project
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)  => {
     e.preventDefault();
 
     try {
-      const endpoint = isEditMode
+      const endpoint = isEditMode && currentProject
         ? `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/edit-project/${currentProject._id}`
         : `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/create-project`;
       const method = isEditMode ? 'PUT' : 'POST';
@@ -49,9 +63,10 @@ const DProjects = () => {
        formDataToSend.append('summary', formData.summary);
        formDataToSend.append('liveLink', formData.liveLink);
        formDataToSend.append('gitHubLink', formData.gitHubLink);
-       formDataToSend.append('stack', formData.stack.split(',').map((s) => s.trim()));
-       formDataToSend.append('category', formData.category.split(',').map((c) => c.trim()));
-       formDataToSend.append('technologies', formData.technologies.split(',').map((t) => t.trim()));
+       formDataToSend.append('stack', formData.stack.split(',').map((s) => s.trim()).join(','));
+formDataToSend.append('category', formData.category.split(',').map((c) => c.trim()).join(','));
+formDataToSend.append('technologies', formData.technologies.split(',').map((t) => t.trim()).join(','));
+
        if (imageFile) formDataToSend.append('image', imageFile); // Append the image file
  
 
@@ -86,7 +101,7 @@ const DProjects = () => {
   };
 
   // Handle delete project
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/delete-project/${id}`, {
         method: 'DELETE',
@@ -104,7 +119,7 @@ const DProjects = () => {
   };
 
   // Handle edit button click
-  const handleEdit = (project) => {
+  const handleEdit = (project: Project) => {
     setIsFormVisible(true);
     setIsEditMode(true);
     setCurrentProject(project);
@@ -208,7 +223,11 @@ const DProjects = () => {
              <input
                 type="file"
                 accept="image/*"
-                onChange={(e) => setImageFile(e.target.files[0])}
+                onChange={(e) => {
+                  if (e.target.files && e.target.files.length > 0) {
+                    setImageFile(e.target.files[0]);
+                  }
+                }}
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
                 required={!isEditMode} // Image is required only for adding a new project
               />

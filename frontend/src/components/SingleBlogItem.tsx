@@ -2,7 +2,22 @@
 import Image from 'next/image';
 import { FaCalendarAlt, FaComment } from 'react-icons/fa';
 
-const SingleBlogItem = ({ item }) => {
+interface BlogItem {
+  img: {
+    src: string;
+  };
+  category: string;
+  title: string;
+  desc: string;
+  date: string;
+  commentCount: string | number
+}
+
+interface SingleBlogItemProps {
+  item: BlogItem;
+}
+
+const SingleBlogItem: React.FC<SingleBlogItemProps> = ({ item }) => {
   const { img, category, title, desc, date, commentCount } = item;
   console.log(img);
 

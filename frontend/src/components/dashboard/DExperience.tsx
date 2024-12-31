@@ -1,9 +1,24 @@
 import React, { useEffect, useState } from "react";
 
+// Define the Experience type
+interface Experience {
+  _id: string;
+  companyName: string;
+  position: string;
+  startDate: string;
+  endDate?: string;
+  location: string;
+  description: string[];
+  technologies: string[];
+  responsibilities: string[];
+  isCurrentlyWorking: boolean;
+}
+
+
 const DExperience = () => {
-  const [experiences, setExperiences] = useState([]);
+  const [experiences, setExperiences] = useState<Experience[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editExperience, setEditExperience] = useState(null);
+  const [editExperience, setEditExperience] = useState<Experience | null>(null);
   const [formData, setFormData] = useState({
     companyName: "",
     position: "",

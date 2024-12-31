@@ -4,11 +4,18 @@ import React, { useEffect, useState } from 'react';
 import { expertise } from '../../public/datas/data';
 import Image from 'next/image';
 
+interface Skill {
+  id: string; // Use the correct type (string, number, etc.)
+  name: string;
+  image: string; // URL for the skill image
+}
+
+
 const Tooling = () => {
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState<Skill[]>([]);
   const fetchSkills = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/v1/skill');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill`);
       if (response.ok) {
         const data = await response.json();
         console.log('data', data);

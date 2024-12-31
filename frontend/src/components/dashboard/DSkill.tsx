@@ -1,11 +1,17 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
+interface Skill {
+  _id: string;
+  name: string;
+  image: string; // Include the `image` property
+}
+
 const DSkill = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [skillName, setSkillName] = useState('');
-  const [skillImage, setSkillImage] = useState(null);
-  const [skills, setSkills] = useState([]);
+  const [skillImage, setSkillImage] = useState<File | null>(null);
+  const [skills, setSkills] = useState<Skill[]>([]);
 
   const handleAddSkill = async () => {
     if (!skillName.trim()) {
@@ -107,7 +113,7 @@ const DSkill = () => {
             </tr>
           </thead>
           <tbody>
-            {skills.map((skill: { _id: string; name: string }) => (
+            {skills.map((skill: Skill) => (
               <tr key={skill._id}>
                 <td className="px-4 py-2 border text-black">
                   <Image
@@ -147,7 +153,11 @@ const DSkill = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setSkillImage(e.target.files[0])}
+              onChange={(e) => {
+                if (e.target.files && e.target.files.length > 0) {
+                  setSkillImage(e.target.files[0]);
+                }
+              }}
               className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
             />
             <div className="flex justify-end gap-4">

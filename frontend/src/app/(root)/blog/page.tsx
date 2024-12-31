@@ -7,7 +7,7 @@ const data = [
     title: 'New Protect: 2nd gen smoke + CO Alarm',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam magnam dolorem culpa voluptate qui nam, delectus,',
     date: 'March 14, 2018',
-    commentCount: '05',
+    commentCount: 5,
   },
   {
     img: blog1,
