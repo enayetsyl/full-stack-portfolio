@@ -15,7 +15,12 @@ const app: Application = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.options('*', cors());
+app.use(
+  cors({
+    origin: '*', // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  })
+);
 
 // application routes
 app.use('/api/v1', router); // /api/v1 will prefix all the route. This is the connection with the index.ts file inside the routes folder. 
