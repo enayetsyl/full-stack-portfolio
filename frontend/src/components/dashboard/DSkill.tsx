@@ -29,7 +29,7 @@ const DSkill = () => {
     formData.append('image', skillImage);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill/`, {
         method: "POST",
         
         body: formData,
