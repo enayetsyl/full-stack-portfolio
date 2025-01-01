@@ -18,14 +18,15 @@ const app: Application = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'], // Allowed origins
+    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'], 
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Optional: Use if cookies are involved
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+    credentials: true, 
   })
 );
 app.options('*', cors());
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
