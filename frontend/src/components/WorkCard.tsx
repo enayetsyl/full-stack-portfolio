@@ -4,7 +4,7 @@ import Link from 'next/link';
 type WorkData = {
   src: StaticImageData | string;
   alt: string;
- link: string;
+  link: string;
   title: string;
   desc: string;
   description?: string;
@@ -15,19 +15,18 @@ type WorkCardProps = {
 };
 
 const WorkCard = ({ workData }: WorkCardProps) => {
-  console.log(workData);
+  const { image, liveLink, title, description } = workData;
 
-  const { src, link, title, description } = workData;
   return (
     <Link
-      href={link}
+      href={liveLink}
       target="_blank"
       className="overflow-hidden text-start group"
     >
       <Image
         height={350}
         width={400}
-        src={src}
+        src={image}
         alt="portfolio image"
         className="w-full max-h-[350px] object-cover rounded-2xl duration-500 hover:scale-95"
       />

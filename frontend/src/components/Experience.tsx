@@ -17,7 +17,6 @@ interface ExperienceItem {
   updatedAt: string; // Last updated timestamp in ISO string format
 }
 
-
 const Experience = () => {
   const [exp, setExp] = useState<ExperienceItem[]>([]);
 
@@ -28,7 +27,6 @@ const Experience = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log('data', data);
         setExp(data.data);
       } else {
         console.error('Failed to fetch Experience');
@@ -38,7 +36,6 @@ const Experience = () => {
     }
   };
 
-  console.log('experience', Experience);
   useEffect(() => {
     fetchExp();
   }, []);
