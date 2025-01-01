@@ -15,14 +15,14 @@ const globalErrorhandler_1 = __importDefault(require("./app/middlewares/globalEr
 const notFound_1 = __importDefault(require("./app/middlewares/notFound"));
 const app = (0, express_1.default)();
 //parsers
-app.use(express_1.default.json());
 app.use((0, cors_1.default)({
     origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'], // Allowed origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type'], // Allow headers used in your requests
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, // Optional: Use if cookies are involved
 }));
 app.options('*', (0, cors_1.default)());
+app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
 // application routes
 app.use('/api/v1', routes_1.default); // /api/v1 will prefix all the route. This is the connection with the index.ts file inside the routes folder. 

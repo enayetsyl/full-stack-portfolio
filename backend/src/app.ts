@@ -13,20 +13,20 @@ const app: Application = express();
 
 
 //parsers
-app.use(express.json());
+
 
 
 app.use(
   cors({
     origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'], // Allowed origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type'], // Allow headers used in your requests
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, // Optional: Use if cookies are involved
   })
 );
-
 app.options('*', cors());
 
+app.use(express.json());
 app.use(cookieParser());
 
 
