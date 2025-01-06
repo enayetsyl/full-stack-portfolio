@@ -3,10 +3,8 @@ import Link from 'next/link';
 
 type WorkData = {
   image: StaticImageData | string;
-  alt: string;
   liveLink: string;
   title: string;
-  desc: string;
   description?: string;
 };
 
