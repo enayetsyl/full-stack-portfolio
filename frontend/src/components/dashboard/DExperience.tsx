@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 // Define the Experience type
 interface Experience {
@@ -14,25 +14,23 @@ interface Experience {
   isCurrentlyWorking: boolean;
 }
 
-
 const DExperience = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editExperience, setEditExperience] = useState<Experience | null>(null);
   const [formData, setFormData] = useState({
-    companyName: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    description: "",
-    technologies: "",
-    responsibilities: "",
+    companyName: '',
+    position: '',
+    startDate: '',
+    endDate: '',
+    location: '',
+    description: '',
+    technologies: '',
+    responsibilities: '',
     isCurrentlyWorking: false,
   });
 
-  console.log("experience", experiences)
-  console.log("baseurl", process.env.NEXT_PUBLIC_BACKEND_BASE_URL)
+  console.log('experience', experiences);
 
   // Fetch all experiences
   const fetchExperiences = async () => {
@@ -41,10 +39,10 @@ const DExperience = () => {
         `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}experience/get-all-experience`
       );
       const data = await response.json();
-      console.log("experience data", data);
+      console.log('experience data', data);
       setExperiences(data.data || []);
     } catch (error) {
-      console.error("Error fetching experiences:", error);
+      console.error('Error fetching experiences:', error);
     }
   };
 
@@ -57,9 +55,9 @@ const DExperience = () => {
 
     try {
       const response = await fetch(endpoint, {
-        method: editExperience ? "PUT" : "POST",
+        method: editExperience ? 'PUT' : 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -67,28 +65,28 @@ const DExperience = () => {
       if (response.status === 200 || response.status === 201) {
         alert(
           editExperience
-            ? "Experience updated successfully!"
-            : "Experience added successfully!"
+            ? 'Experience updated successfully!'
+            : 'Experience added successfully!'
         );
         setFormData({
-          companyName: "",
-          position: "",
-          startDate: "",
-          endDate: "",
-          location: "",
-          description: "",
-          technologies: "",
-          responsibilities: "",
+          companyName: '',
+          position: '',
+          startDate: '',
+          endDate: '',
+          location: '',
+          description: '',
+          technologies: '',
+          responsibilities: '',
           isCurrentlyWorking: false,
         });
         setEditExperience(null);
         setIsModalOpen(false);
         fetchExperiences();
       } else {
-        alert("Failed to save experience");
+        alert('Failed to save experience');
       }
     } catch (error) {
-      console.error("Error saving experience:", error);
+      console.error('Error saving experience:', error);
     }
   };
 
@@ -97,9 +95,9 @@ const DExperience = () => {
     setEditExperience(experience);
     setFormData({
       ...experience,
-      description: experience.description.join(", "),
-      technologies: experience.technologies.join(", "),
-      responsibilities: experience.responsibilities.join(", "),
+      description: experience.description.join(', '),
+      technologies: experience.technologies.join(', '),
+      responsibilities: experience.responsibilities.join(', '),
     });
     setIsModalOpen(true);
   };
@@ -117,14 +115,14 @@ const DExperience = () => {
         <button
           onClick={() => {
             setFormData({
-              companyName: "",
-              position: "",
-              startDate: "",
-              endDate: "",
-              location: "",
-              description: "",
-              technologies: "",
-              responsibilities: "",
+              companyName: '',
+              position: '',
+              startDate: '',
+              endDate: '',
+              location: '',
+              description: '',
+              technologies: '',
+              responsibilities: '',
               isCurrentlyWorking: false,
             });
             setEditExperience(null);
@@ -146,7 +144,7 @@ const DExperience = () => {
               <th className="px-4 py-2 border">Actions</th>
             </tr>
           </thead>
-          <tbody >
+          <tbody>
             {experiences.map((experience: Experience) => (
               <tr key={experience._id}>
                 <td className="px-4 py-2 border">{experience.companyName}</td>
@@ -168,9 +166,9 @@ const DExperience = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-96 max-h-[90vh] overflow-y-scroll" >
+          <div className="bg-white p-6 rounded shadow-lg w-96 max-h-[90vh] overflow-y-scroll">
             <h2 className="text-2xl font-bold mb-4 text-black">
-              {editExperience ? "Edit Experience" : "Add Experience"}
+              {editExperience ? 'Edit Experience' : 'Add Experience'}
             </h2>
             <form onSubmit={handleSubmit} className="">
               {/* Company Name */}
@@ -278,7 +276,7 @@ const DExperience = () => {
                 type="submit"
                 className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
               >
-                {editExperience ? "Update" : "Add"}
+                {editExperience ? 'Update' : 'Add'}
               </button>
             </form>
           </div>
