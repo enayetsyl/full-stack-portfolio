@@ -2,9 +2,9 @@ import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
 type WorkData = {
-  src: StaticImageData | string;
+  image: StaticImageData | string;
   alt: string;
-  link: string;
+  liveLink: string;
   title: string;
   desc: string;
   description?: string;
