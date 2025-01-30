@@ -13,15 +13,15 @@ const Social = ({ center, marginTop }: SocialProps) => {
         center && 'justify-center'
       }`}
     >
-      {socialData.map((item, i) => {
+      {socialData?.map((item, i) => {
         return (
           <Link
-            href={item.link}
+            href={item?.link}
             target="_blank"
             className={`hover:-translate-y-2 duration-300 opacity-75 `}
             key={i}
           >
-            <span dangerouslySetInnerHTML={{ __html: item.icon }} />
+            <span dangerouslySetInnerHTML={{ __html: item?.icon }} />
           </Link>
         );
       })}

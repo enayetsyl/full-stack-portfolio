@@ -188,17 +188,17 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
             </tr>
           </thead>
           <tbody>
-            {projects.map((project) => (
+            {projects?.map((project) => (
               <tr key={project._id}>
                 <td className="px-4 py-2 border">{project.title}</td>
                 <td className="px-4 py-2 border">
                   <a
-                    href={project.liveLink}
+                    href={project?.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500"
                   >
-                    {project.liveLink || 'N/A'}
+                    {project?.liveLink || 'N/A'}
                   </a>
                 </td>
                 <td className="px-4 py-2 border text-center">

@@ -11,11 +11,6 @@ import notFound from './app/middlewares/notFound';
 
 const app: Application = express();
 
-
-//parsers
-
-
-
 app.use(
   cors({
     origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'], 

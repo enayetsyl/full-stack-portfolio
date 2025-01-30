@@ -26,19 +26,19 @@ const Navbar = () => {
             {navData.map((item, i) => {
               return (
                 <Link
-                  href={`${item.link}`}
+                  href={`${item?.link}`}
                   key={i}
                   className={`flex items-center py-5 px-11 border-b custom_border group hover:bg-white hover:bg-opacity-10 duration-300 ${
-                    pathname === item.link && 'bg-white bg-opacity-10'
+                    pathname === item?.link && 'bg-white bg-opacity-10'
                   }`}
                 >
                   <span
-                    dangerouslySetInnerHTML={{ __html: item.icon }}
+                    dangerouslySetInnerHTML={{ __html: item?.icon }}
                     className="mr-2.5"
                   />
                   <p
                     className={`opacity-50 group-hover:opacity-100 duration-500 ${
-                      pathname === item.link && 'opacity-100'
+                      pathname === item?.link && 'opacity-100'
                     }`}
                   >
                     {item.title}
@@ -85,18 +85,18 @@ const Navbar = () => {
                 {navData.map((item, i) => {
                   return (
                     <Link
-                      href={`${item.link}`}
+                      href={`${item?.link}`}
                       key={i}
                       className={`flex items-center py-5 px-11 border-b custom_border group hover:bg-white hover:bg-opacity-10 duration-300 ${
-                        pathname === item.link && 'bg-white bg-opacity-10'
+                        pathname === item?.link && 'bg-white bg-opacity-10'
                       }`}
                     >
                       <span
-                        dangerouslySetInnerHTML={{ __html: item.icon }}
+                        dangerouslySetInnerHTML={{ __html: item?.icon }}
                         className="mr-2.5"
                       />
                       <p className="opacity-50 group-hover:opacity-100 duration-500">
-                        {item.title}
+                        {item?.title}
                       </p>
                     </Link>
                   );
