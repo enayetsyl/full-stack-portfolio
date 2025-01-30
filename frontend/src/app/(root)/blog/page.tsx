@@ -1,46 +1,37 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import SingleBlogItem from '@/components/SingleBlogItem';
-import blog1 from '../../../../public/assets/assignment-8.jpg';
-const data = [
-  {
-    img: blog1,
-    category: 'Gadget',
-    title: 'New Protect: 2nd gen smoke + CO Alarm',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam magnam dolorem culpa voluptate qui nam, delectus,',
-    date: 'March 14, 2018',
-    commentCount: 5,
-  },
-  {
-    img: blog1,
-    category: 'Gadget',
-    title: 'New Protect: 2nd gen smoke + CO Alarm',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam magnam dolorem culpa voluptate qui nam, delectus,',
-    date: 'March 14, 2018',
-    commentCount: '05',
-  },
-  {
-    img: blog1,
-    category: 'Gadget',
-    title: 'New Protect: 2nd gen smoke + CO Alarm',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam magnam dolorem culpa voluptate qui nam, delectus,',
-    date: 'March 14, 2018',
-    commentCount: '05',
-  },
-  {
-    img: blog1,
-    category: 'Gadget',
-    title: 'New Protect: 2nd gen smoke + CO Alarm',
-    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam magnam dolorem culpa voluptate qui nam, delectus,',
-    date: 'March 14, 2018',
-    commentCount: '05',
-  },
-];
+
 const Blogs = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(
+          'http://localhost:5000/api/v1/blog/get-all-blog'
+        );
+        const data = await response.json();
+        console.log(data.data);
+
+        setBlogs(data.data);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
   return (
     <div className="xl:pl-[270px]">
       <div className="container px-4 mx-auto max-w-4xl py-12">
-        {data?.map((item, i) => (
-          <SingleBlogItem key={i} item={item} />
-        ))}
+        {blogs.length === 0 ? (
+          <h4 className="text-xl text-center">There are nothing to show.</h4>
+        ) : (
+          blogs.map((item, i) => <SingleBlogItem key={i} item={item} />)
+        )}
       </div>
     </div>
   );
