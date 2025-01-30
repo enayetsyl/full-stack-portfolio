@@ -29,11 +29,14 @@ const DSkill = () => {
     formData.append('image', skillImage);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill/`, {
-        method: "POST",
-        
-        body: formData,
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill/`,
+        {
+          method: 'POST',
+
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         alert('Skill added successfully!');
@@ -52,7 +55,9 @@ const DSkill = () => {
 
   const fetchSkills = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill`
+      );
       if (response.ok) {
         const data = await response.json();
         console.log('data', data);
@@ -67,9 +72,12 @@ const DSkill = () => {
 
   const handleDeleteSkill = async (id: string) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}skill/${id}`,
+        {
+          method: 'DELETE',
+        }
+      );
 
       if (response.ok) {
         alert('Skill deleted successfully!');
@@ -121,6 +129,7 @@ const DSkill = () => {
                     width={80}
                     height={80}
                     alt="skill-image"
+                    className="w-20 h-20 object-cover"
                   />
                 </td>
                 <td className="px-4 py-2 border text-black">{skill.name}</td>

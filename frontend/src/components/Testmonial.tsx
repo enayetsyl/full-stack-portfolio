@@ -1,4 +1,5 @@
-import { reviews } from "../../public/datas/data";
+import Image from 'next/image';
+import { reviews } from '../../public/datas/data';
 
 const Testimonial = () => {
   return (
@@ -14,9 +15,11 @@ const Testimonial = () => {
             >
               <p className="text-lg font-light leading-7 xl:text-justify">{`"${text}"`}</p>
               <div className="flex items-center gap-4 mt-6">
-                <img
+                <Image
                   src={userImage}
                   alt="user"
+                  width={40}
+                  height={40}
                   className="rounded-full w-10 h-10 object-cover"
                 />
                 <div>

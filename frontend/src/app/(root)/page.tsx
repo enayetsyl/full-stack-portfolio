@@ -11,17 +11,17 @@ const Home = () => {
       <div className="flex flex-col xl:flex-row">
         <div className="xl:pl-[270px] md:mt-20 xl:mt-0 w-full">
           <HomeContent />
-          <div className="relative border-b custom_border w-full"></div>
+          <div className="relative border-b custom_border w-full" />
           <ClientLogos />
-          <div className="relative border-b custom_border w-full"></div>
+          <div className="relative border-b custom_border w-full" />
           <Tooling />
-          <div className="relative border-b custom_border w-full"></div>
+          <div className="relative border-b custom_border w-full" />
           <Work />
-          <div className="relative border-b custom_border w-full"></div>
+          <div className="relative border-b custom_border w-full" />
           <Testimonial />
-          <div className="relative border-b custom_border w-full"></div>
+          <div className="relative border-b custom_border w-full" />
           <Experience />
-          <div className="relative border-b custom_border w-full"></div>
+          <div className="relative border-b custom_border w-full" />
         </div>
       </div>
     </>

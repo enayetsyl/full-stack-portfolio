@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Button from '@/components/Button';
-import own from '../../../public/assets/own-3.jpg';
-
+// import own from '../../../public/assets/own-3.jpg';
 
 const About = () => {
   const buttonData = {
@@ -19,49 +18,56 @@ const About = () => {
             creating exceptional user experiences. I love to do vercetile work
             and give the design and minimal outlook throught my code.
           </p>
-          <img
-            src={'https://res.cloudinary.com/deqyxkw0y/image/upload/v1735383179/Md_Enayetur_Rahman_Photo_admfn0.png'}
+          <div
+            className="w-full h-[550px] rounded-xl bg-no-repeat bg-top my-12"
+            style={{
+              backgroundImage: `url('https://res.cloudinary.com/deqyxkw0y/image/upload/v1735383179/Md_Enayetur_Rahman_Photo_admfn0.png')`,
+            }}
+          ></div>
+          {/* <img
+            src={
+              'https://res.cloudinary.com/deqyxkw0y/image/upload/v1735383179/Md_Enayetur_Rahman_Photo_admfn0.png'
+            }
             alt="own"
-            className="w-full rounded-xl object-cover max-h-[450px] my-12"
-          />
-          <p className="font-extralight opacity-50 mb-8">
-            I am a passionate React developer, dedicated to shaping the digital
-            world through innovative and user-centric web applications. With a
-            strong command of JavaScript, HTML, and CSS, I have embarked on an
-            exciting journey of transforming design visions into seamless,
-            interactive experiences on the web.
+            className="w-full rounded-xl object-top max-h-[550px] my-12"
+          /> */}
+          <p className="text-xl text-justify opacity-90 mb-8">
+            I’m Md Enayetur Rahman, a Full-Stack Developer with a passion for
+            building scalable, high-performance applications that make an
+            impact. My journey in tech is unique—I transitioned from having no
+            formal technical background to becoming a Full-Stack Developer
+            within a year, securing an internship that turned into a permanent
+            role, and quickly stepping up as a second team lead.
             <br />
             <br />
-            My work revolves around harnessing the power of React, a
-            cutting-edge JavaScript library, to build robust and efficient
-            front-end solutions. I thrive on tackling complex challenges,
-            whether it's optimizing performance, enhancing user interfaces, or
-            integrating third-party APIs. Each project I undertake is an
-            opportunity to explore new possibilities and refine my skills in the
-            ever-evolving world of web development.
+            I specialize in Next.js, Node.js, PostgreSQL, MongoDB, WebRTC, and
+            automation tools like n8n, with hands-on experience in AI-powered
+            integrations, scalable system design, and real-time applications.
+            I’ve worked in multinational teams across India, Pakistan, and
+            Bangladesh, collaborating on USA-based projects and mentoring junior
+            developers to drive team success.
             <br />
             <br />
-            In addition to my technical prowess, I'm a problem solver and a
-            creative thinker. I take pride in my ability to collaborate
-            effectively with cross-functional teams, ensuring that the end
-            product not only meets but exceeds client and user expectations.
-            User experience is at the forefront of my work, and I constantly
-            strive to deliver intuitive and visually appealing applications.
+            Beyond coding, I love solving problems—whether in tech or society. I
+            actively reflect on social challenges, brainstorm solutions, and
+            contribute through charitable initiatives such as winter clothing
+            distribution and medical fundraisers. I also serve as a volunteer
+            principal at a kindergarten school, leading 12 teachers and 5
+            administrators, which has strengthened my leadership, communication,
+            and management skills.
             <br />
             <br />
-            The fast-paced nature of the tech industry is a constant source of
-            motivation for me. I am always eager to learn about emerging
-            technologies and best practices to stay ahead of the curve. My goal
-            as a React developer is not just to write code but to craft digital
-            experiences that leave a lasting impression on users.
+            While balancing a full-time job, I continuously push my limits by
+            learning data structures, algorithms, and system design to deepen my
+            technical understanding. I believe in constant growth, discipline,
+            and making a meaningful impact—both in technology and beyond.
             <br />
             <br />
-            In a world where digital presence is paramount, I see myself as a
-            catalyst for change, creating web applications that not only meet
-            the functional needs of businesses but also elevate the overall
-            online experience. I am excited to continue my journey as a React
-            developer, pushing boundaries and making a meaningful impact in the
-            digital realm.
+            When I’m not coding, I spend time with my family, two kids, parents,
+            and siblings, enjoying outdoor trips, home feasts, and deep
+            conversations. I value strong relationships, faith, and continuous
+            learning, all of which shape who I am as a person and a
+            professional.
           </p>
           <Button data={buttonData} />
         </div>
