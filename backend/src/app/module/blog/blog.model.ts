@@ -14,7 +14,11 @@ const blogSchema = new Schema<IBlog>(
     },
     body: {
       type: String,
-      required: true, // Rich text content
+      required: true, 
+    },
+    link: {
+      type: String,
+      required: true, 
     },
   },
   {

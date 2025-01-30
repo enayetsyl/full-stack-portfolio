@@ -20,7 +20,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
   const { src, link, title, description } = workData;
   return (
     <Link
-      href={link}
+      href={link || "www.google.com"} 
       target="_blank"
       className="overflow-hidden text-start group"
     >

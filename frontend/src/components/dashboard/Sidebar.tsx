@@ -19,13 +19,13 @@ const Sidebar = ({
       </div>
       <nav>
         <ul>
-          {links.map((link, index) => (
+          {links?.map((link, index) => (
             <li key={index}>
               <button
-                onClick={() => setActiveComponent(link.component)}
+                onClick={() => setActiveComponent(link?.component)}
                 className="w-full text-left px-4 py-2 hover:bg-gray-100 text-black"
               >
-                {link.name}
+                {link?.name}
               </button>
             </li>
           ))}
