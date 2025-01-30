@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const DBlogs = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div>Hello</div>;
+};
 
-export default DBlogs
+export default DBlogs;
