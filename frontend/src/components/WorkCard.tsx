@@ -74,7 +74,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
       {/* stacks */}
       {stack && stack?.length > 0 && (
         <div className="my-2 ml-2">
-          <h6 className="text-sm opacity-75 flex gap-4 items-center">
+          <h6 className="text-sm opacity-75 flex gap-4">
             Stacks:
             <div className="flex gap-1 flex-wrap text-[13px]">
               {stack.map((st, i) => (
@@ -89,7 +89,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
       {/* technologies */}
       {technologies && technologies?.length > 0 && (
         <div className="my-2 ml-2">
-          <h6 className="text-sm opacity-75 flex gap-4 items-center">
+          <h6 className="text-sm opacity-75 flex gap-4">
             Techs:
             <div className="flex gap-1 flex-wrap text-[13px]">
               {technologies.map((tech, i) => (
