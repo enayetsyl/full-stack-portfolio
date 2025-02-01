@@ -47,7 +47,6 @@ const CreateBlog = catchAsync(async (req, res) => {
     link
   } = req.body;
 
-  console.log('req.body', req.body)
 
   const imageFile = req.file as Express.Multer.File;
 
@@ -68,7 +67,6 @@ const CreateBlog = catchAsync(async (req, res) => {
   };
 
   const result = await BlogService.CreateBlog(payload);
-console.log('result', result)
   sendResponse(res, {
     statusCode: 201,
     success: true,

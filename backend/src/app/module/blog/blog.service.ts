@@ -3,7 +3,6 @@ import { Blog } from "./blog.model";
 
 const CreateBlog = async (payload: IBlog) => {
  const result = await Blog.create(payload);
- console.log('result', result)
   return result;
 }
 const GetAllBlogs = async () => {
