@@ -3,19 +3,48 @@ import Link from 'next/link';
 
 type WorkData = {
   image: StaticImageData | string;
-  liveLink: string;
-  codeLink: string;
-  docLink: string;
+  liveLink?: string;
+  gitHubLink?: string;
+  docLink?: string;
+  videoLink?: string;
   title: string;
   description?: string;
+  stack?: string[];
+  technologies?: string[];
 };
 
 type WorkCardProps = {
   workData: WorkData;
 };
 
+//////////////////////work ////////////////
+// title: string;
+// image: string;
+// description?: string;
+// summary?: string;
+// liveLink?: string;
+// gitHubLink?: string;
+// docLink?: string;
+// videoLink?: string;
+// stack: string[];
+// category: string[];
+// technologies: string[];
+
+//  validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux'];
+
+//  validStack = [ "MERN", "PERN", "FULL"]
 const WorkCard = ({ workData }: WorkCardProps) => {
-  const { image, liveLink, codeLink, docLink, title, description } = workData;
+  const {
+    image,
+    liveLink,
+    gitHubLink,
+    docLink,
+    videoLink,
+    title,
+    description,
+    stack,
+    technologies,
+  } = workData;
 
   return (
     <>
@@ -41,22 +70,70 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           {description}
         </p>
       </Link>
+
+      {/* stacks */}
+      {stack && stack?.length > 0 && (
+        <div className="my-2 ml-2">
+          <h6 className="text-sm opacity-75 flex gap-4 items-center">
+            Stacks:
+            <div className="flex gap-1 flex-wrap text-[13px]">
+              {stack.map((st, i) => (
+                <span key={i} className="bg-orange-600/40 px-2 py-0.5 rounded">
+                  {st}
+                </span>
+              ))}
+            </div>
+          </h6>
+        </div>
+      )}
+      {/* technologies */}
+      {technologies && technologies?.length > 0 && (
+        <div className="my-2 ml-2">
+          <h6 className="text-sm opacity-75 flex gap-4 items-center">
+            Techs:
+            <div className="flex gap-1 flex-wrap text-[13px]">
+              {technologies.map((tech, i) => (
+                <span key={i} className="bg-green-600/30 px-2 py-0.5 rounded">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </h6>
+        </div>
+      )}
       <div className="flex flex-wrap gap-y-4 gap-x-6 ml-2 mt-2 text-lg">
-        <Link
-          href={liveLink}
-          className="opacity-75 hover:opacity-100 underline"
-        >
-          Live Link
-        </Link>
-        <Link
-          href={codeLink}
-          className="opacity-75 hover:opacity-100 underline"
-        >
-          Code
-        </Link>
-        <Link href={docLink} className="opacity-75 hover:opacity-100 underline">
-          Doc
-        </Link>
+        {liveLink && (
+          <Link
+            href={liveLink}
+            className="opacity-75 hover:opacity-100 underline"
+          >
+            Live Link
+          </Link>
+        )}
+        {gitHubLink && (
+          <Link
+            href={gitHubLink}
+            className="opacity-75 hover:opacity-100 underline"
+          >
+            Code
+          </Link>
+        )}
+        {docLink && (
+          <Link
+            href={docLink}
+            className="opacity-75 hover:opacity-100 underline"
+          >
+            Doc
+          </Link>
+        )}
+        {videoLink && (
+          <Link
+            href={videoLink}
+            className="opacity-75 hover:opacity-100 underline"
+          >
+            Watch
+          </Link>
+        )}
       </div>
     </>
   );

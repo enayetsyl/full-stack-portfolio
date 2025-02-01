@@ -11,7 +11,6 @@ interface Skill {
 
 const Tooling = () => {
   const [skills, setSkills] = useState<Skill[]>([]);
-  console.log('skills', skills);
   const fetchSkills = async () => {
     try {
       const response = await fetch(
@@ -19,7 +18,6 @@ const Tooling = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log('data', data);
         setSkills(data.data);
       } else {
         console.error('Failed to fetch skills');
@@ -29,13 +27,12 @@ const Tooling = () => {
     }
   };
 
-  console.log('skills', skills);
   useEffect(() => {
     fetchSkills();
   }, []);
   return (
     <div className="container px-4 mx-auto py-20">
-      <h2 className="text-3xl font-medium">My Expertise</h2>
+      <h2 className="text-3xl font-medium">My Skills</h2>
       <div className="grid grid-cols-4 gap-4 xl:gap-12 py-12">
         {skills.map((item) => {
           return (

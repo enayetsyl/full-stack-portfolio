@@ -14,7 +14,6 @@ const Work = () => {
         `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/get-all-projects`
       );
       const data = await response.json();
-      console.log('data', data);
       setProjects(data.data || []);
     } catch (error) {
       console.error('Error fetching projects:', error);

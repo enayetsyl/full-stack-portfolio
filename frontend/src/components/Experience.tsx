@@ -1,56 +1,38 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { experience } from '../../public/datas/data';
 
-interface ExperienceItem {
-  _id: string; // The unique identifier for the experience
-  companyName: string; // Name of the company
-  description: string[]; // Array of descriptions for the experience
-  startDate: string; // Start date in ISO string format
-  endDate: string; // End date in ISO string format
-  isCurrentlyWorking: boolean; // Indicates if the person is still working here
-  location: string; // Location of the company
-  position: string; // Position or role
-  responsibilities: string[]; // Array of responsibilities
-  technologies: string[]; // Array of technologies used
-  createdAt: string; // Creation timestamp in ISO string format
-  updatedAt: string; // Last updated timestamp in ISO string format
-}
+const colors = [
+  'bg-yellow-600',
+  'bg-blue-600',
+  'bg-emerald-600',
+  'bg-orange-600',
+];
 
 const Experience = () => {
-  const [exp, setExp] = useState<ExperienceItem[]>([]);
-
-  const fetchExp = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}experience/get-all-experience`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setExp(data.data);
-      } else {
-        console.error('Failed to fetch Experience');
-      }
-    } catch (error) {
-      console.error('Error fetching experience:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchExp();
-  }, []);
   return (
     <div className="container px-4 mx-auto py-20">
-      <h2 className="text-3xl font-medium">My Experiences</h2>
-      <div className="grid grid-cols-4 gap-4 xl:gap-12 py-12">
-        {exp.map((item: ExperienceItem) => {
+      <h2 className="text-3xl font-medium mb-8 text-center">My Experiences</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-12">
+        {experience.map((item, i) => {
+          const { title, designation, duration, details } = item;
+          const bgColor = colors[i % colors.length];
+
           return (
-            <div
-              className="col-span-4 sm:col-span-2 lg:col-span-1 text-center h-full"
-              key={item._id}
-            >
-              <div className="w-full flex items-center gap-2 border custom_border rounded-xl p-4 md:p-8 h-full group">
-                <h2 className="text-xl capitalize">{item.companyName}</h2>
+            <div className="text-left h-full" key={i}>
+              <div
+                className={`w-full flex flex-col items-start gap-2 border custom_border rounded-xl p-6 md:p-8 h-full group text-white ${bgColor} bg-opacity-10`}
+              >
+                <h2 className="text-2xl font-bold capitalize">{designation}</h2>
+                <p className="capitalize opacity-75 text-lg">{title}</p>
+                <p className="opacity-75 text-sm mb-4">{duration}</p>
+
+                {/* Rendering HTML safely */}
+                <div
+                  className="text-sm opacity-80 space-y-3"
+                  dangerouslySetInnerHTML={{ __html: details }}
+                />
               </div>
             </div>
           );
