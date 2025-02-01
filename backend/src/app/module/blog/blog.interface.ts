@@ -1,6 +1,6 @@
 export interface IBlog {
   title: string;
   image: string;
-  body: string; 
+  description: string; 
   link: string; 
 }

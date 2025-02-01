@@ -12,7 +12,7 @@ const blogSchema = new Schema<IBlog>(
       type: String,
       required: true,
     },
-    body: {
+    description: {
       type: String,
       required: true, 
     },
