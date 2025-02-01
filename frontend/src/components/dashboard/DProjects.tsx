@@ -7,6 +7,8 @@ interface Project {
   summary: string;
   liveLink: string;
   gitHubLink: string;
+  videoLink: string;
+  docLink: string;
   stack: string[];
   category: string[];
   technologies: string[];
@@ -25,6 +27,8 @@ const DProjects = () => {
     summary: '',
     liveLink: '',
     gitHubLink: '',
+    videoLink: '',
+    docLink: '',
     stack: '',
     category: '',
     technologies: '',
@@ -64,6 +68,8 @@ const DProjects = () => {
        formDataToSend.append('summary', formData.summary);
        formDataToSend.append('liveLink', formData.liveLink);
        formDataToSend.append('gitHubLink', formData.gitHubLink);
+       formDataToSend.append('docLink', formData.docLink);
+       formDataToSend.append('videoLink', formData.videoLink);
        formDataToSend.append('stack', formData.stack.split(',').map((s) => s.trim()).join(','));
 formDataToSend.append('category', formData.category.split(',').map((c) => c.trim()).join(','));
 formDataToSend.append('technologies', formData.technologies.split(',').map((t) => t.trim()).join(','));
@@ -90,6 +96,8 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
           liveLink: '',
           gitHubLink: '',
           stack: '',
+          docLink: '',
+          videoLink: '',
           category: '',
           technologies: '',
         });
@@ -137,6 +145,8 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
       summary: project.summary,
       liveLink: project.liveLink,
       gitHubLink: project.gitHubLink,
+      docLink: project.docLink,
+      videoLink: project.videoLink,
       stack: project.stack.join(', '),
       category: project.category.join(', '),
       technologies: project.technologies.join(', '),
@@ -165,6 +175,8 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
               summary: '',
               liveLink: '',
               gitHubLink: '',
+              docLink: '',
+              videoLink: '',
               stack: '',
               category: '',
               technologies: '',
@@ -282,6 +294,24 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
                   setFormData({ ...formData, gitHubLink: e.target.value })
                 }
                 placeholder="GitHub Link"
+                className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
+              />
+              <input
+                type="text"
+                value={formData.docLink}
+                onChange={(e) =>
+                  setFormData({ ...formData, docLink: e.target.value })
+                }
+                placeholder="Doc Link"
+                className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
+              />
+              <input
+                type="text"
+                value={formData.videoLink}
+                onChange={(e) =>
+                  setFormData({ ...formData, videoLink: e.target.value })
+                }
+                placeholder="Video Link"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
               <textarea

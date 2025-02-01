@@ -28,6 +28,14 @@ const projectSchema = new Schema<IProject>(
       type: String,
       default: null,
     },
+    docLink: {
+      type: String,
+      default: null,
+    },
+    videoLink: {
+      type: String,
+      default: null,
+    },
     gitHubLink: {
       type: String,
       default: null,
