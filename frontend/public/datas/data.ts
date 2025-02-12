@@ -102,7 +102,12 @@ export const clients = [
   // },
 ];
 
-export const workCategories = [
+export type WorkCategory = {
+  text: string;
+  category: string;
+};
+
+export const workCategories: WorkCategory[] = [
   {
     text: 'All',
     category: 'all',
@@ -136,7 +141,7 @@ export const workCategories = [
     category: 'mongoose',
   },
   {
-    text: 'Postgresql',
+    text: 'PostgreSQL',
     category: 'postgre',
   },
   {
