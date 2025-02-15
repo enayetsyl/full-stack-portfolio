@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use('/api/v1', router); // /api/v1 will prefix all the route. This is the connection with the index.ts file inside the routes folder. 
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello from boiler plate code');
+  res.send('Hello from full stack backend');
 });
 
 app.use(globalErrorHandler);  // This is connected with the globalErrorhandler.ts file at the middleware folder.

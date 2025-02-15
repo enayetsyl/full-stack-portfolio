@@ -14,7 +14,6 @@ const routes_1 = __importDefault(require("./app/routes"));
 const globalErrorhandler_1 = __importDefault(require("./app/middlewares/globalErrorhandler"));
 const notFound_1 = __importDefault(require("./app/middlewares/notFound"));
 const app = (0, express_1.default)();
-//parsers
 app.use((0, cors_1.default)({
     origin: ['http://localhost:5173', 'http://localhost:3000', 'https://e-rahman-portfolio.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -28,7 +27,7 @@ app.use((0, cookie_parser_1.default)());
 // application routes
 app.use('/api/v1', routes_1.default); // /api/v1 will prefix all the route. This is the connection with the index.ts file inside the routes folder. 
 app.get('/', (req, res) => {
-    res.send('Hello from boiler plate code');
+    res.send('Hello from full stack backend');
 });
 app.use(globalErrorhandler_1.default); // This is connected with the globalErrorhandler.ts file at the middleware folder.
 //Not Found

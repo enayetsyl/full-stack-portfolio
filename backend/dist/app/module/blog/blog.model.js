@@ -12,9 +12,13 @@ const blogSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    body: {
+    description: {
         type: String,
-        required: true, // Rich text content
+        required: true,
+    },
+    link: {
+        type: String,
+        required: true,
     },
 }, {
     timestamps: true,

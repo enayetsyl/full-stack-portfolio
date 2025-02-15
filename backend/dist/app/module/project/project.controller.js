@@ -19,7 +19,7 @@ const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const project_service_1 = require("./project.service");
 // Create a new project
 const CreateProject = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { title, description, summary, liveLink, gitHubLink, stack, category, technologies, } = req.body;
+    const { title, description, summary, liveLink, gitHubLink, docLink, videoLink, stack, category, technologies, } = req.body;
     const imageFile = req.file;
     if (!imageFile) {
         throw new Error("Image file is required");
@@ -31,6 +31,7 @@ const CreateProject = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
         summary,
         liveLink,
         gitHubLink,
+        docLink, videoLink,
         stack: stack.split(",").map((s) => s.trim()),
         category: category.split(",").map((c) => c.trim()),
         technologies: technologies.split(",").map((t) => t.trim()),
@@ -47,14 +48,14 @@ const CreateProject = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
 // Edit a project
 const EditProject = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const { title, description, summary, liveLink, gitHubLink, stack, category, technologies, } = req.body;
+    const { title, description, summary, liveLink, gitHubLink, stack, docLink, videoLink, category, technologies, } = req.body;
     const imageFile = req.file;
     let payload = {
         title,
         description,
         summary,
         liveLink,
-        gitHubLink,
+        gitHubLink, docLink, videoLink,
         stack: stack === null || stack === void 0 ? void 0 : stack.split(",").map((s) => s.trim()),
         category: category === null || category === void 0 ? void 0 : category.split(",").map((c) => c.trim()),
         technologies: technologies === null || technologies === void 0 ? void 0 : technologies.split(",").map((t) => t.trim()),
