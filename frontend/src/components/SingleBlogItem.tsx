@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { FaCalendarAlt } from 'react-icons/fa';
 
 interface BlogItem {
-  image?: string;
-  title?: string;
+  image: string;
+  title: string;
   desc?: string;
   createdAt?: string;
-  link?: string;
+  link: string;
 }
 
 interface SingleBlogItemProps {

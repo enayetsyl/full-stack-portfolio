@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 type WorkData = {
   image: StaticImageData | string;
-  liveLink?: string;
+  liveLink: string;
   gitHubLink?: string;
   docLink?: string;
   videoLink?: string;
@@ -17,22 +17,7 @@ type WorkCardProps = {
   workData: WorkData;
 };
 
-//////////////////////work ////////////////
-// title: string;
-// image: string;
-// description?: string;
-// summary?: string;
-// liveLink?: string;
-// gitHubLink?: string;
-// docLink?: string;
-// videoLink?: string;
-// stack: string[];
-// category: string[];
-// technologies: string[];
 
-//  validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux'];
-
-//  validStack = [ "MERN", "PERN", "FULL"]
 const WorkCard = ({ workData }: WorkCardProps) => {
   const {
     image,
@@ -106,6 +91,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           <Link
             href={liveLink}
             className="opacity-75 hover:opacity-100 underline"
+             target="_blank"
           >
             Live Link
           </Link>
@@ -114,6 +100,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           <Link
             href={gitHubLink}
             className="opacity-75 hover:opacity-100 underline"
+            target="_blank"
           >
             Code
           </Link>
@@ -122,6 +109,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           <Link
             href={docLink}
             className="opacity-75 hover:opacity-100 underline"
+             target="_blank"
           >
             Doc
           </Link>
@@ -130,6 +118,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           <Link
             href={videoLink}
             className="opacity-75 hover:opacity-100 underline"
+             target="_blank"
           >
             Watch
           </Link>

@@ -1,13 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { portfolioWorks } from '../../../../public/datas/data';
 import WorkCard from '@/components/WorkCard';
 import Categories from '@/components/Categories';
 
 const Works = () => {
   const [projects, setProjects] = useState([]);
-  const [originalProjects, setOriginalProjects] = useState([]); // Store original fetched projects
-
+  const [originalProjects, setOriginalProjects] = useState([]); 
   const fetchProjects = async () => {
     try {
       const response = await fetch(
@@ -15,7 +13,7 @@ const Works = () => {
       );
       const data = await response.json();
       setProjects(data.data || []);
-      setOriginalProjects(data.data || []); // Store original data
+      setOriginalProjects(data.data || []); 
     } catch (error) {
       console.error('Error fetching projects:', error);
     }
@@ -25,12 +23,12 @@ const Works = () => {
     fetchProjects();
   }, []);
 
-  const filterItems = (category) => {
+  const filterItems = (category:string) => {
     if (category === 'all') {
       setProjects(originalProjects); // Reset to original fetched data
       return;
     }
-    const newItems = originalProjects.filter((item) =>
+    const newItems = originalProjects.filter((item: { category: string }) =>
       item.category.includes(category)
     );
     setProjects(newItems);
