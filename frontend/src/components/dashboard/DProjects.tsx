@@ -14,7 +14,9 @@ interface Project {
   technologies: string[];
 }
 
+//  validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux'];
 
+//  validStack = [ "MERN", "PERN", "FULL"]
 
 const DProjects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -35,8 +37,6 @@ const DProjects = () => {
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
 
-  console.log('projects', projects);
-
   // Fetch all projects
   const fetchProjects = async () => {
     try {
@@ -44,7 +44,6 @@ const DProjects = () => {
         `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/get-all-projects`
       );
       const data = await response.json();
-      console.log('data', data);
       setProjects(data.data || []);
     } catch (error) {
       console.error('Error fetching projects:', error);
@@ -52,30 +51,48 @@ const DProjects = () => {
   };
 
   // Handle form submission for adding/editing project
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)  => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const endpoint = isEditMode && currentProject
-        ? `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/edit-project/${currentProject._id}`
-        : `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/create-project`;
+      const endpoint =
+        isEditMode && currentProject
+          ? `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/edit-project/${currentProject._id}`
+          : `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}project/create-project`;
       const method = isEditMode ? 'PUT' : 'POST';
 
-       // Use FormData to send image and other data
-       const formDataToSend = new FormData();
-       formDataToSend.append('title', formData.title);
-       formDataToSend.append('description', formData.description);
-       formDataToSend.append('summary', formData.summary);
-       formDataToSend.append('liveLink', formData.liveLink);
-       formDataToSend.append('gitHubLink', formData.gitHubLink);
-       formDataToSend.append('docLink', formData.docLink);
-       formDataToSend.append('videoLink', formData.videoLink);
-       formDataToSend.append('stack', formData.stack.split(',').map((s) => s.trim()).join(','));
-formDataToSend.append('category', formData.category.split(',').map((c) => c.trim()).join(','));
-formDataToSend.append('technologies', formData.technologies.split(',').map((t) => t.trim()).join(','));
+      // Use FormData to send image and other data
+      const formDataToSend = new FormData();
+      formDataToSend.append('title', formData.title);
+      formDataToSend.append('description', formData.description);
+      formDataToSend.append('summary', formData.summary);
+      formDataToSend.append('liveLink', formData.liveLink);
+      formDataToSend.append('gitHubLink', formData.gitHubLink);
+      formDataToSend.append('docLink', formData.docLink);
+      formDataToSend.append('videoLink', formData.videoLink);
+      formDataToSend.append(
+        'stack',
+        formData.stack
+          .split(',')
+          .map((s) => s.trim())
+          .join(',')
+      );
+      formDataToSend.append(
+        'category',
+        formData.category
+          .split(',')
+          .map((c) => c.trim())
+          .join(',')
+      );
+      formDataToSend.append(
+        'technologies',
+        formData.technologies
+          .split(',')
+          .map((t) => t.trim())
+          .join(',')
+      );
 
-       if (imageFile) formDataToSend.append('image', imageFile); // Append the image file
- 
+      if (imageFile) formDataToSend.append('image', imageFile); // Append the image file
 
       const response = await fetch(endpoint, {
         method,
@@ -236,7 +253,7 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
       {/* Form to add/edit project */}
       {isFormVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-          <div className="bg-white p-6 rounded shadow-lg w-96 max-h-[90vh] overflow-y-scroll text-black">
+          <div className="bg-white p-6 rounded shadow-lg min-w-[350px] max-w-[600px] max-h-[90vh] overflow-y-scroll text-black">
             <h2 className="text-2xl font-bold mb-4">
               {isEditMode ? 'Edit Project' : 'Add Project'}
             </h2>
@@ -314,6 +331,10 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
                 placeholder="Video Link"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
+              <p className="opacity-75 text-sm mb-2">
+                {' '}
+                Valid: MERN, PERN, FULL
+              </p>
               <textarea
                 value={formData.stack}
                 onChange={(e) =>
@@ -322,6 +343,10 @@ formDataToSend.append('technologies', formData.technologies.split(',').map((t) =
                 placeholder="Stack (comma-separated)"
                 className="w-full px-4 py-2 border rounded mb-4 focus:outline-none"
               />
+              <p className="opacity-75 text-sm mb-2">
+                Valid: next, react, typescript, tailwind, shadcn, zod, express,
+                prisma, redux
+              </p>
               <textarea
                 value={formData.category}
                 onChange={(e) =>

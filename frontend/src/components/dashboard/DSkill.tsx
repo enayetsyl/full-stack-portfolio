@@ -60,7 +60,6 @@ const DSkill = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log('data', data);
         setSkills(data.data);
       } else {
         console.error('Failed to fetch skills');
@@ -91,7 +90,6 @@ const DSkill = () => {
     }
   };
 
-  console.log('skills', skills);
   useEffect(() => {
     fetchSkills();
   }, []);

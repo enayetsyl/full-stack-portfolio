@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import { workCategories, WorkCategory } from '../../public/datas/data';
+import { workCategories } from '../../public/datas/data';
 
-type CategoriesProps = {
-  filterItems: (category: string) => void;
-};
-
-const Categories = ({ filterItems }: CategoriesProps) => {
-  const [active, setActive] = useState<string>('all');
+const Categories = ({ filterItems }) => {
+  const [active, setActive] = useState('all');
 
   return (
     <>
-      {workCategories.map((category: WorkCategory, i: number) => {
+      {workCategories.map((category, i) => {
         return (
           <div key={i}>
             <p

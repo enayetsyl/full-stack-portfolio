@@ -26,7 +26,6 @@ const DBlogs = () => {
         'http://localhost:5000/api/v1/blog/get-all-blog'
       );
       const data = await response.json();
-      console.log('data', data);
       setBlogs(data.data || []);
     } catch (error) {
       console.error('Error fetching blogs:', error);

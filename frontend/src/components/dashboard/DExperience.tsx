@@ -30,8 +30,6 @@ const DExperience = () => {
     isCurrentlyWorking: false,
   });
 
-  console.log('experience', experiences);
-
   // Fetch all experiences
   const fetchExperiences = async () => {
     try {
@@ -39,7 +37,6 @@ const DExperience = () => {
         `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}experience/get-all-experience`
       );
       const data = await response.json();
-      console.log('experience data', data);
       setExperiences(data.data || []);
     } catch (error) {
       console.error('Error fetching experiences:', error);

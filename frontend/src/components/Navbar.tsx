@@ -86,6 +86,7 @@ const Navbar = () => {
                   return (
                     <Link
                       href={`${item?.link}`}
+                      onClick={() => setOpen((prev) => !prev)}
                       key={i}
                       className={`flex items-center py-5 px-11 border-b custom_border group hover:bg-white hover:bg-opacity-10 duration-300 ${
                         pathname === item?.link && 'bg-white bg-opacity-10'
