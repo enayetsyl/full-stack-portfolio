@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import Button from '@/components/Button';
-// import own from '../../../public/assets/own-3.jpg';
 
 const About = () => {
   const buttonData = {

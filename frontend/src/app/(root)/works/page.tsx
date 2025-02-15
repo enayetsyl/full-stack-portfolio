@@ -5,7 +5,7 @@ import Categories from '@/components/Categories';
 
 const Works = () => {
   const [projects, setProjects] = useState([]);
-  const [originalProjects, setOriginalProjects] = useState([]); 
+  const [originalProjects, setOriginalProjects] = useState([]);
   const fetchProjects = async () => {
     try {
       const response = await fetch(
@@ -13,7 +13,7 @@ const Works = () => {
       );
       const data = await response.json();
       setProjects(data.data || []);
-      setOriginalProjects(data.data || []); 
+      setOriginalProjects(data.data || []);
     } catch (error) {
       console.error('Error fetching projects:', error);
     }
@@ -23,7 +23,7 @@ const Works = () => {
     fetchProjects();
   }, []);
 
-  const filterItems = (category:string) => {
+  const filterItems = (category: string) => {
     if (category === 'all') {
       setProjects(originalProjects); // Reset to original fetched data
       return;
@@ -43,10 +43,10 @@ const Works = () => {
           <Categories filterItems={filterItems} />
         </div>
         {/* works */}
-        <div className="grid grid-cols-3 gap-4 gap-y-8 lg:gap-y-12 lg:gap-20 py-12">
+        <div className="grid col-span-1 sm:grid-cols-2 md:grid-cols-3 gap-4 gap-y-8 lg:gap-8 py-12">
           {projects?.map((item, i) => {
             return (
-              <div className="col-span-3 md:col-span-1" key={i}>
+              <div key={i}>
                 <WorkCard workData={item} />
               </div>
             );

@@ -3,6 +3,8 @@ import HomeContent from '@/components/HomeContent';
 import CP from '@/components/CP';
 import Tooling from '@/components/Tooling';
 import Work from '@/components/Work';
+import FeaturedWork from '@/components/FeaturedWork';
+import HomeBlog from '@/components/HomeBlog';
 
 const Home = () => {
   return (
@@ -16,13 +18,14 @@ const Home = () => {
           <Tooling />
           <div className="relative border-b custom_border w-full" />
           <Work />
-          {/* <div className="relative border-b custom_border w-full" />
-          <Testimonial /> */}
+          <div className="relative border-b custom_border w-full" />
+          <FeaturedWork />
           <div className="relative border-b custom_border w-full" />
           <Experience />
           <div className="relative border-b custom_border w-full" />
           <CP />
           <div className="relative border-b custom_border w-full" />
+          <HomeBlog />
         </div>
       </div>
     </>

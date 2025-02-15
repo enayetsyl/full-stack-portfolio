@@ -27,7 +27,7 @@ const CP = () => {
       <h2 className="text-3xl font-medium mb-8 text-center">
         Competitve Programming
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 xl:gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 xl:gap-12">
         {cp.map((item, i) => {
           const { site, solved, link } = item;
 
@@ -45,7 +45,7 @@ const CP = () => {
                 <Link
                   href={link}
                   className="opacity-75 underline hover:opacity-100"
-                  target='_blank'
+                  target="_blank"
                 >
                   View My Profile
                 </Link>

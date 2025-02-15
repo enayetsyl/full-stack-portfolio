@@ -43,7 +43,7 @@ const SingleBlogItem: React.FC<SingleBlogItemProps> = ({ item }) => {
       />
 
       <div className="bg-slate-700 shadow-xl max-w-[90%] mx-auto -mt-20 py-12 px-8 relative">
-        <h2 className="capitalize text-2xl font-bold hover:text-primary duration-500 my-4 line-clamp-1">
+        <h2 className="capitalize text-2xl font-bold hover:text-primary duration-500 my-4 line-clamp-2">
           {title}
         </h2>
         <p className="opacity-75 line-clamp-2">{desc}</p>
