@@ -1,4 +1,3 @@
-import ClientLogos from '@/components/ClientLogos';
 import Experience from '@/components/Experience';
 import HomeContent from '@/components/HomeContent';
 import CP from '@/components/CP';

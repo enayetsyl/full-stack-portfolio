@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { IProject } from './project.interface';
 
-const validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux'];
+const validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux', 'other'];
 
 const validStack = [ "MERN", "PERN", "FULL", "FRONTEND", "BACKEND", "OTHER"]
 

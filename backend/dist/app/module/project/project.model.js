@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Project = void 0;
 const mongoose_1 = require("mongoose");
-const validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux'];
+const validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux', 'other'];
 const validStack = ["MERN", "PERN", "FULL", "FRONTEND", "BACKEND", "OTHER"];
 const projectSchema = new mongoose_1.Schema({
     title: {
