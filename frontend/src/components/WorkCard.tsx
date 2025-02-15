@@ -17,7 +17,6 @@ type WorkCardProps = {
   workData: WorkData;
 };
 
-
 const WorkCard = ({ workData }: WorkCardProps) => {
   const {
     image,
@@ -44,7 +43,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
             width={400}
             src={image}
             alt="portfolio image"
-            className="w-full max-h-full object-cover rounded-2xl duration-500 hover:scale-95"
+            className="w-full max-h-full h-full object-cover rounded-2xl duration-500 hover:scale-95"
           />
         </div>
 
@@ -91,7 +90,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           <Link
             href={liveLink}
             className="opacity-75 hover:opacity-100 underline"
-             target="_blank"
+            target="_blank"
           >
             Live Link
           </Link>
@@ -109,7 +108,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           <Link
             href={docLink}
             className="opacity-75 hover:opacity-100 underline"
-             target="_blank"
+            target="_blank"
           >
             Doc
           </Link>
@@ -118,7 +117,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           <Link
             href={videoLink}
             className="opacity-75 hover:opacity-100 underline"
-             target="_blank"
+            target="_blank"
           >
             Watch
           </Link>
