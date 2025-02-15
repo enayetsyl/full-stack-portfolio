@@ -333,7 +333,7 @@ const DProjects = () => {
               />
               <p className="opacity-75 text-sm mb-2">
                 {' '}
-                Valid: MERN, PERN, FULL
+                Valid: MERN, PERN, FULL, FRONTEND, BACKEND, OTHER
               </p>
               <textarea
                 value={formData.stack}
@@ -345,7 +345,7 @@ const DProjects = () => {
               />
               <p className="opacity-75 text-sm mb-2">
                 Valid: next, react, typescript, tailwind, shadcn, zod, express,
-                prisma, redux
+                prisma, redux, api, other, mui
               </p>
               <textarea
                 value={formData.category}
