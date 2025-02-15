@@ -160,6 +160,10 @@ export const workCategories: WorkCategory[] = [
     text: 'Material UI',
     category: 'mui',
   },
+  {
+    text: 'Mongoose',
+    category: 'mongoose',
+  },
 ];
 
 //////////////////////work ////////////////

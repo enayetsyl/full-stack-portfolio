@@ -345,7 +345,7 @@ const DProjects = () => {
               />
               <p className="opacity-75 text-sm mb-2">
                 Valid: next, react, typescript, tailwind, shadcn, zod, express,
-                prisma, redux, api, other, mui
+                prisma, redux, api, other, mui, mongoose
               </p>
               <textarea
                 value={formData.category}
