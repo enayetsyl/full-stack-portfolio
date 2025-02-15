@@ -31,12 +31,8 @@ const WorkCard = ({ workData }: WorkCardProps) => {
   } = workData;
 
   return (
-    <>
-      <Link
-        href={liveLink}
-        target="_blank"
-        className="overflow-hidden text-start group"
-      >
+    <div className="text-start group">
+      <Link href={liveLink} target="_blank">
         <div className="h-[300px] md:h-[150px] lg:h-[250px]">
           <Image
             height={300}
@@ -50,13 +46,26 @@ const WorkCard = ({ workData }: WorkCardProps) => {
         <h2 className="text-xl group-hover:text-[#36d7b7] duration-300 pt-4 pl-2">
           {title}
         </h2>
-        <p className="capitalize text-sm pl-2 opacity-50 line-clamp-2">
-          {description}
-        </p>
+
+        {description && (
+          <div className="relative flex items-center gap-2 pl-2">
+            <p className="capitalize text-sm opacity-50">
+              {description.slice(0, 60)}...
+            </p>
+
+            {/* Tooltip Wrapper */}
+            <div className="relative group-hover:block">
+              {/* Tooltip Content */}
+              <div className="absolute top-1/2 right-0 -translate-y-1/2 ml-2 w-80 bg-gray-800 text-white text-sm p-2 rounded shadow-lg hidden group-hover:block z-50">
+                {description}
+              </div>
+            </div>
+          </div>
+        )}
       </Link>
 
-      {/* stacks */}
-      {stack && stack?.length > 0 && (
+      {/* Stacks */}
+      {stack && stack.length > 0 && (
         <div className="my-2 ml-2">
           <h6 className="text-sm opacity-75 flex gap-4">
             Stacks:
@@ -70,8 +79,9 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           </h6>
         </div>
       )}
-      {/* technologies */}
-      {technologies && technologies?.length > 0 && (
+
+      {/* Technologies */}
+      {technologies && technologies.length > 0 && (
         <div className="my-2 ml-2">
           <h6 className="text-sm opacity-75 flex gap-4">
             Techs:
@@ -85,6 +95,8 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           </h6>
         </div>
       )}
+
+      {/* Links */}
       <div className="flex flex-wrap gap-y-4 gap-x-6 ml-2 mt-2 text-lg">
         {liveLink && (
           <Link
@@ -123,7 +135,7 @@ const WorkCard = ({ workData }: WorkCardProps) => {
           </Link>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
