@@ -29,10 +29,7 @@ const SingleBlogItem: React.FC<SingleBlogItemProps> = ({ item }) => {
   const { image, title, desc, createdAt, link } = item;
 
   return (
-    <Link
-      href={link}
-      className="px-4 lg:px-12 pb-6 md:pb-16 relative overflow-hidden z-10"
-    >
+    <Link href={link} className="mb-4 relative overflow-hidden z-10">
       <Image
         src={image}
         alt={title}
