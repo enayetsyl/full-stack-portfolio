@@ -6,17 +6,17 @@ import React from 'react';
 const cp = [
   {
     site: 'Leetcode',
-    solved: 400,
+    solved: 2,
     link: 'https://leetcode.com/u/XTl7hvNPIc/',
   },
   {
     site: 'Codeforces',
-    solved: 400,
+    solved: 30,
     link: 'https://codeforces.com/profile/enayetsyl',
   },
   {
     site: 'Hacker Rank',
-    solved: 400,
+    solved: 79,
     link: 'https://www.hackerrank.com/profile/enayetflweb',
   },
 ];
@@ -27,7 +27,7 @@ const CP = () => {
       <h2 className="text-3xl font-medium mb-8 text-center">
         Competitve Programming
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 xl:gap-12">
         {cp.map((item, i) => {
           const { site, solved, link } = item;
 
@@ -45,6 +45,7 @@ const CP = () => {
                 <Link
                   href={link}
                   className="opacity-75 underline hover:opacity-100"
+                  target='_blank'
                 >
                   View My Profile
                 </Link>
