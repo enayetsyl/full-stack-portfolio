@@ -156,6 +156,10 @@ export const workCategories: WorkCategory[] = [
     text: 'API Integration',
     category: 'api',
   },
+  {
+    text: 'Material UI',
+    category: 'mui',
+  },
 ];
 
 //////////////////////work ////////////////
