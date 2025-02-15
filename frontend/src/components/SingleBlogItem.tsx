@@ -32,6 +32,7 @@ const SingleBlogItem: React.FC<SingleBlogItemProps> = ({ item }) => {
     <Link
       href={link}
       className="px-4 lg:px-12 pb-6 md:pb-16 relative overflow-hidden z-10"
+      target='_blank'
     >
       <Image
         src={image}
