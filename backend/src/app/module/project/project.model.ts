@@ -3,7 +3,7 @@ import { IProject } from './project.interface';
 
 const validCategories = ['next', 'react', 'typescript', 'tailwind', 'shadcn', 'zod', 'express', 'prisma', 'redux'];
 
-const validStack = [ "MERN", "PERN", "FULL"]
+const validStack = [ "MERN", "PERN", "FULL", "FRONTEND", "BACKEND", "OTHER"]
 
 const projectSchema = new Schema<IProject>(
   {
