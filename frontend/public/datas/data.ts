@@ -148,6 +148,10 @@ export const workCategories: WorkCategory[] = [
     text: 'Prisma',
     category: 'prisma',
   },
+  {
+    text: 'Other',
+    category: 'other',
+  },
 ];
 
 //////////////////////work ////////////////
