@@ -31,7 +31,7 @@ const SingleBlogItem: React.FC<SingleBlogItemProps> = ({ item }) => {
   return (
     <Link
       href={link}
-      className="px-4 lg:px-12 relative overflow-hidden z-10"
+      className="relative overflow-hidden z-10 rounded-xl"
       target="_blank"
     >
       <Image
@@ -42,7 +42,7 @@ const SingleBlogItem: React.FC<SingleBlogItemProps> = ({ item }) => {
         className="w-full h-[300px] object-cover"
       />
 
-      <div className="bg-slate-700 shadow-xl max-w-[90%] mx-auto -mt-20 py-12 px-8 relative">
+      <div className="bg-slate-700 shadow-xl mx-auto -mt-20 py-12 px-8 relative">
         <h2 className="capitalize text-2xl font-bold hover:text-primary duration-500 my-4 line-clamp-2">
           {title}
         </h2>
