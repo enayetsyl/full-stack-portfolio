@@ -1,5 +1,8 @@
 import knowledgeMinar from '../assets/knowledge-minar.png';
 import assignment8 from '../assets/assignment-8.jpg';
+import gardenia from '../assets/gardenia.png';
+import meet_space from '../assets/meet_space.png';
+import shopease from '../assets/shopease.png';
 
 export const socialData = [
   {
@@ -186,7 +189,7 @@ export const workCategories: WorkCategory[] = [
 export const staticWorks = [
   {
     title: 'E-commerce Website',
-    image: knowledgeMinar,
+    image: shopease,
     description: 'MERN Stack',
     alt: 'shopease',
     liveLink: 'https://shop-ease-8a83-fe.vercel.app/',
@@ -207,7 +210,7 @@ export const staticWorks = [
   },
   {
     title: 'Gardenia',
-    image: knowledgeMinar,
+    image: gardenia,
     description: 'MERN Stack',
     alt: 'shopease',
     liveLink: 'https://gardenia-fe.vercel.app/',
@@ -230,7 +233,7 @@ export const staticWorks = [
   },
   {
     title: 'Meet Space',
-    image: knowledgeMinar,
+    image: meet_space,
     description: 'MERN Stack',
     alt: 'shopease',
     liveLink: 'https://meet-space-theta.vercel.app/',
@@ -318,7 +321,16 @@ export const experience = [
     title: '365 AI Tech',
     designation: 'Full Stack Developer',
     duration: 'Nov 2024 - Ongoing',
-    details: `<p>Currently working as a Full Stack Developer at 365 AI Tech.</p>`,
+    details: `<p>Currently working as a Full Stack Developer at 365 AI Tech.</p>
+    
+    <ul>
+        <li>- Developed and maintained full-stack applications using MERN stack and Next.js.</li>
+        <li>- Integrated third-party APIs, including Google/Facebook login, automatic video posting to Facebook/YouTube, and Hume AI for emotion analysis; Deepgram for text-to-audio and audio-to-text generation; GPT API for story and image prompt generation.</li>
+        <li>- Automated workflows using n8n and Make.com, including Airtable integrations.</li>
+        <li>- Designed and implemented video generation workflows with Shotstack API and text-to-image generation using MidJourney, GoAPI, and Leonardo.</li>
+        <li>- Utilized WebRTC, Socket.io, and FFmpeg for real-time features and media handling.</li>
+        <li>- Worked on responsive design using Material UI and ShadCN UI, ensuring seamless UX.</li>
+      </ul>`,
   },
   {
     title: '365 AI Tech',

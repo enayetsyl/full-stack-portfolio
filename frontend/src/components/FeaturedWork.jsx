@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import Button from './Button';
-import WorkCard from './WorkCard';
+import FeaturedCard from './FeaturedCard';
 import { staticWorks } from '../../public/datas/data';
 
 const FeaturedWork = () => {
   const [projects, setProjects] = useState([]);
+  const [features, setFeatures] = useState([]);
 
   // Fetch all projects
   const fetchProjects = async () => {
@@ -25,6 +26,18 @@ const FeaturedWork = () => {
     fetchProjects();
   }, []);
 
+  useEffect(() => {
+    const selectedProjects = projects.filter((project) =>
+      [
+        'Book Generator',
+        'PDF Management Tool',
+        'Auto Website Deployment Tool',
+      ].includes(project.title)
+    );
+
+    setFeatures(selectedProjects.slice(0, 3));
+  }, [projects]);
+
   const buttonData = {
     link: '/works',
     text: 'View All Work',
@@ -34,10 +47,10 @@ const FeaturedWork = () => {
     <div className="container px-4 mx-auto py-20">
       <h2 className="text-3xl font-medium">Featured Works</h2>
       <div className="grid grid-cols-3 gap-4 gap-y-12 lg:gap-20 py-12">
-        {staticWorks?.slice(0, 3).map((item, i) => {
+        {features?.slice(0, 3).map((item, i) => {
           return (
             <div className="col-span-3 md:col-span-1" key={i}>
-              <WorkCard workData={item} />
+              <FeaturedCard workData={item} />
             </div>
           );
         })}

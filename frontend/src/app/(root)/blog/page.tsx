@@ -29,7 +29,11 @@ const Blogs = () => {
         {blogs.length === 0 ? (
           <h4 className="text-xl text-center">There are nothing to show.</h4>
         ) : (
-          blogs.map((item, i) => <SingleBlogItem key={i} item={item} />)
+          <div className="grid grid-cols-1 gap-y-6 md:gap-y-12">
+            {blogs.map((item, i) => (
+              <SingleBlogItem key={i} item={item} />
+            ))}{' '}
+          </div>
         )}
       </div>
     </div>

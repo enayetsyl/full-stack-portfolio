@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Button from '@/components/Button';
+import Image from 'next/image';
 
 const About = () => {
   const buttonData = {
@@ -17,19 +18,23 @@ const About = () => {
             creating exceptional user experiences. I love to do vercetile work
             and give the design and minimal outlook throught my code.
           </p>
-          <div
-            className="w-full h-[550px] rounded-xl bg-no-repeat bg-top my-12"
+          {/* <div
+            className="w-full h-[550px] rounded-xl bg-no-repeat bg-top my-12 overflow-hidden"
             style={{
               backgroundImage: `url('https://res.cloudinary.com/deqyxkw0y/image/upload/v1735383179/Md_Enayetur_Rahman_Photo_admfn0.png')`,
             }}
-          ></div>
-          {/* <img
-            src={
-              'https://res.cloudinary.com/deqyxkw0y/image/upload/v1735383179/Md_Enayetur_Rahman_Photo_admfn0.png'
-            }
-            alt="own"
-            className="w-full rounded-xl object-top max-h-[550px] my-12"
-          /> */}
+          ></div> */}
+          <div className="max-w-[400px] h-auto mx-auto">
+            <Image
+              width={400}
+              height={400}
+              src={
+                'https://res.cloudinary.com/deqyxkw0y/image/upload/v1735383179/Md_Enayetur_Rahman_Photo_admfn0.png'
+              }
+              alt="own"
+              className="w-full rounded-xl object-top object-cover max-h-[550px] my-12"
+            />{' '}
+          </div>
           <p className="text-xl text-justify opacity-90 mb-8">
             I’m Md Enayetur Rahman, a Full-Stack Developer with a passion for
             building scalable, high-performance applications that make an
