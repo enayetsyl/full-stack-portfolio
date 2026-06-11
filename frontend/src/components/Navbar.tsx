@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="p-8 flex flex-col justify-center items-center border-b custom_border">
           <div>
             <Link href="/">
-              <h1 className="text-xl leading-6 mb-1">Enayetur Rahman</h1>
+              <h1 className="text-xl leading-6 mb-1">Md Enayetur Rahman</h1>
             </Link>
             <p className="opacity-50 font-light">Full Stack Developer</p>
           </div>

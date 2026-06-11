@@ -14,9 +14,11 @@ const About = () => {
         <div className="py-12">
           <h2 className="text-3xl sm:text-[40px] mb-3">About Me</h2>
           <p className="font-light text-[17px]">
-            I'm a passionate and innovative Frontend developer with a flair for
-            creating exceptional user experiences. I love to do vercetile work
-            and give the design and minimal outlook throught my code.
+            I'm a full-stack developer who helps small service businesses
+            capture more of the customers they're already paying to attract. I
+            build AI phone receptionists, missed-call text-back systems, booking
+            and reminder automations, and simple business websites — then keep
+            them running so you don't have to think about them.
           </p>
           {/* <div
             className="w-full h-[550px] rounded-xl bg-no-repeat bg-top my-12 overflow-hidden"
@@ -36,42 +38,37 @@ const About = () => {
             />{' '}
           </div>
           <p className="text-xl text-justify opacity-90 mb-8">
-            I’m Md Enayetur Rahman, a Full-Stack Developer with a passion for
-            building scalable, high-performance applications that make an
-            impact. My journey in tech is unique—I transitioned from having no
-            formal technical background to becoming a Full-Stack Developer
-            within a year, securing an internship that turned into a permanent
-            role, and quickly stepping up as a second team lead.
+            I’m Md Enayetur Rahman, a full-stack developer with 2+ years of
+            professional experience building production applications. My path
+            into tech is unusual: I came from a chartered accountancy
+            background, taught myself development, and within a year went from
+            beginner to a permanent developer role — and then to second team
+            lead.
             <br />
             <br />
-            I specialize in Next.js, Node.js, PostgreSQL, MongoDB, WebRTC, and
-            automation tools like n8n, with hands-on experience in AI-powered
-            integrations, scalable system design, and real-time applications.
-            I’ve worked in multinational teams across India, Pakistan, and
-            Bangladesh, collaborating on USA-based projects and mentoring junior
-            developers to drive team success.
+            Since April 2024 I’ve worked full-time at a software company
+            building real products for US-based clients: AI voice and automation
+            systems, video-generation pipelines, real-time applications with
+            WebRTC and Socket.io, and integrations across n8n, Make.com,
+            Deepgram, and the GPT API. My core stack is Next.js, Node.js,
+            PostgreSQL, and MongoDB. I’ve collaborated in multinational teams
+            across India, Pakistan, and Bangladesh and mentored junior
+            developers along the way.
             <br />
             <br />
-            Beyond coding, I love solving problems—whether in tech or society. I
-            actively reflect on social challenges, brainstorm solutions, and
-            contribute through charitable initiatives such as winter clothing
-            distribution and medical fundraisers. I also serve as a volunteer
-            principal at a kindergarten school, leading 12 teachers and 5
-            administrators, which has strengthened my leadership, communication,
-            and management skills.
+            My accounting background means I think about your business the way
+            you do — in revenue, costs, and missed opportunities, not in
+            technical features. When I propose an automation, it’s because the
+            numbers make sense for you.
             <br />
             <br />
-            While balancing a full-time job, I continuously push my limits by
-            learning data structures, algorithms, and system design to deepen my
-            technical understanding. I believe in constant growth, discipline,
-            and making a meaningful impact—both in technology and beyond.
-            <br />
-            <br />
-            When I’m not coding, I spend time with my family, two kids, parents,
-            and siblings, enjoying outdoor trips, home feasts, and deep
-            conversations. I value strong relationships, faith, and continuous
-            learning, all of which shape who I am as a person and a
-            professional.
+            Beyond work, I volunteer as principal of a primary school, leading
+            12 teachers and 5 administrators — which keeps my communication and
+            management skills sharp. I contribute to charitable initiatives like
+            winter clothing distribution and medical fundraisers. When I’m not
+            working, I’m with my family — two kids, parents, and siblings —
+            enjoying outdoor trips and long conversations. Faith, strong
+            relationships, and continuous learning shape everything I do.
           </p>
           <Button data={buttonData} />
         </div>

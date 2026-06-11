@@ -18,9 +18,10 @@ const HomeContent = () => {
           {`Hey, I'm Enayet — I'm a Full Stack Developer!`}
         </h2>
         <p className="text-lg font-light opacity-75 mb-12">
-          I am a full-stack Developer with 1 years of experience specializing in
-          Next JS, Express, Mongodb, Postgres tha11t drive innovation and
-          efficiency.
+          I build AI receptionists, automations, and websites that stop small
+          businesses from losing calls, bookings, and time. Full-stack developer
+          with 2+ years of experience — Next.js, Node.js, n8n, and VAPI voice
+          agents.
         </p>
         <Social center={false} marginTop={true} />
       </div>
