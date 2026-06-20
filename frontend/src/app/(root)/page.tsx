@@ -1,6 +1,7 @@
 import Experience from '@/components/Experience';
 import HomeContent from '@/components/HomeContent';
 import Services from '@/components/Services';
+import Demos from '@/components/Demos';
 import Tooling from '@/components/Tooling';
 import Work from '@/components/Work';
 import FeaturedWork from '@/components/FeaturedWork';
@@ -15,6 +16,8 @@ const Home = () => {
           {/* <ClientLogos /> */}
           <div className="relative border-b custom_border w-full" />
           <Services />
+          <div className="relative border-b custom_border w-full" />
+          <Demos />
           <div className="relative border-b custom_border w-full" />
           <Tooling />
           <div className="relative border-b custom_border w-full" />
