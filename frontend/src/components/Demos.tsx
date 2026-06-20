@@ -7,6 +7,12 @@ const demos: Demo[] = [
       "When a call goes unanswered, the caller instantly receives a text-back — so the job stays with you instead of going to the next company. At the same time, the lead lands in the owner's inbox. Runs automatically, around the clock. Built with Make.com, Twilio, and WhatsApp.",
     youtubeId: 'Y0CpWy2dCII',
   },
+  {
+    title: 'AI Voice Receptionist (VAPI)',
+    description:
+      'A 24/7 AI receptionist that answers calls in a natural voice — books appointments, answers common questions, and handles after-hours calls so patients never hit voicemail. Demo built for a sample dental clinic. Built with VAPI.',
+    youtubeId: 'M1IyAVBVf-g',
+  },
 ];
 
 const Demos = () => {
