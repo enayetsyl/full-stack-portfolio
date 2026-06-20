@@ -55,7 +55,7 @@ const Services = () => {
         >
           enayetflweb@gmail.com
         </a>{' '}
-        — I work in writing and reply within a day. No sales call needed.
+        — I reply in writing within a day. No sales call needed.
       </p>
     </div>
   );
