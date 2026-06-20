@@ -11,7 +11,7 @@ const demos: Demo[] = [
     title: 'AI Voice Receptionist (VAPI)',
     description:
       'A 24/7 AI receptionist that answers calls in a natural voice — books appointments, answers common questions, and handles after-hours calls so patients never hit voicemail. Demo built for a sample dental clinic. Built with VAPI.',
-    youtubeId: 'M1IyAVBVf-g',
+    youtubeId: 'mhG_fMdV96U',
   },
 ];
 
